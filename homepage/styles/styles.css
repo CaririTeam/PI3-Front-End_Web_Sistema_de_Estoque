@@ -35,11 +35,12 @@ nav{
 
 nav li{
     display: block;
+    
 }
 
 nav li a{
     display: flex;
-    font-size: 1.5vw;
+    font-size: clamp(10px, 1.5vw, 1.5vw);
     color: white;
     align-items: center;
     height: 100%;
@@ -49,7 +50,7 @@ nav li a{
 nav li div a{
     display: inline-block;
     padding: 15px;
-    font-size: 1.2vw;
+    font-size: clamp(8px, 1.2vw, 1.2vw);
     color:white;
     
 }
@@ -60,11 +61,14 @@ nav li a:hover{
 
 .dropdown-menu{
     position: absolute;
+    text-align: center;
     opacity: 0;
     visibility: hidden;    
 }
 
 .dropdown-menu a{
+    
+    height: 10%;
     display: block;    
     background-color: rgb(64, 83, 67);      
 }
@@ -107,9 +111,13 @@ h1{
     padding-top: 10px;
     color: white;
     font-weight: bold;
-    font-size: clamp(25px, 2.5vw, 2.5vw);
+    font-size: clamp(20px, 2.5vw, 2.5vw);
     text-align: center;
     height: 8%;
+}
+
+.container-menu{
+    width: 100vw;
 }
 
 .abrir-menu{
@@ -251,59 +259,101 @@ footer a img:hover{
 
 /* Uso de media queries */
 
-@media (max-width: 428px){
+@media (max-width: 750px){
 
+   
     body{
-        display: block;
-        
+        height: 100vh;
+        width: 100vw;
     }
 
-    nav{
+    .ul-breadcrumb{
         display: none;
     }
+   
 
-    h1{
-        height: 32%;
+    .container-nav{
+        visibility: hidden;
+        opacity: 0;
+       
     }
 
+    .mostrar-nav{
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;  
+        width: 50%;
+        height: 500px;
+        top: 70px;
+        left: 50%;
+        z-index: 1;
+        background-color:#10403b;
+        text-align: end;
+    }
+
+   
+    nav ul li a{
+        height: 50px;
+    }
+
+    /*h1 mais botao hamburguer*/
     .container-menu{
         display: flex;
         flex-direction: row;
+        margin: auto;
         height: 15%;
         align-items: center;
         justify-content: space-around;
         background-color: #10403b;
+        position: absolute;
+        top: 0;                       /*Leva h1 para o topo*/
+        left: 0;
+        padding-left: 10px;
+        
+    }
+
+    .dropdown-menu{
+        width: 100%;        
+        left: 0;
+     }
+
+    h1{
+        height: 50%;
+        width: 75%;
     }
 
     .abrir-menu{
-        all: unset;
+        z-index: 2;
         visibility: visible;
-        width: 25%;
-        font-size: 30px;
+        width: 20%;
+        font-size: 8vh;
         background-color:#10403b ;
         color: white;
-        text-align: center;
+        text-align: start;
         cursor: pointer;
     }
     
     main{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        height: 80%;
-        width: 90%;        
+        height: auto;
         margin-bottom: 10px;
         margin-top: 10px;
     }
 
+    
     main div{
         height: 80%;
-        width: 80%;
+        width: 70%;
         margin : 10px 0px 10px 0px;
-
     }
 
     footer{
-        height: 10%;
+        height: 15%;
     }
         
 }
