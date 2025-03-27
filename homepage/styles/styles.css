@@ -203,7 +203,6 @@ footer{
     flex-direction: row;
     justify-content: center;
     border-radius: 10px;
-    
 }
 
 .img-container-redes-sociais{
@@ -211,8 +210,8 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 20%;
-    height: 60%;
+    width: 30%;
+    height: 70%;
 }
 
 footer ul{
@@ -221,7 +220,7 @@ footer ul{
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    font-size: 0.7vw;
+    font-size: clamp(7px, 0.7vw, 0.7vw);
 }
 
 footer a img{                               /*Estilização das imagens do rodapé*/
@@ -243,7 +242,7 @@ footer li{
 
 .titulo-lista-footer{
     font-weight: bolder;
-    font-size: 1vw;
+    font-size: clamp(9px, 1vw, 1vw);
     padding-bottom: 10px;
 }
 
@@ -259,7 +258,7 @@ footer a img:hover{
 
 /* Uso de media queries */
 
-@media (max-width: 750px){
+@media (max-width: 428px){
 
    
     body{
@@ -330,7 +329,7 @@ footer a img:hover{
         z-index: 2;
         visibility: visible;
         width: 20%;
-        font-size: 8vh;
+        font-size: 6vh;
         background-color:#10403b ;
         color: white;
         text-align: start;
@@ -353,7 +352,11 @@ footer a img:hover{
     }
 
     footer{
+        flex-shrink: 0;
+        width: 100vw;
         height: 15%;
     }
+
+   
         
 }
