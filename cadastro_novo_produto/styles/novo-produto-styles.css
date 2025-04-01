@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body{    
+body{
     background-color: #252121;
     display: flex;
     flex-direction: column;
@@ -21,20 +21,20 @@ nav{
     flex-direction: column;
     min-height: 15%;
     justify-content: space-around;
-    
+
 }
 
 .container-nav{
     display: flex;
     justify-content: space-around;
-    background-color: #10403b;  
+    background-color: #10403b;
     height: 12vh;
     width: 100%;
 }
 
 nav li{
     display: block;
-    
+
 }
 
 nav li a{
@@ -43,7 +43,7 @@ nav li a{
     color: white;
     align-items: center;
     height: 100%;
-    
+
 }
 
 nav li div a{
@@ -51,7 +51,7 @@ nav li div a{
     padding: 15px;
     font-size: clamp(8px, 1.2vw, 1.2vw);
     color:white;
-    
+
 }
 
 nav li a:hover{
@@ -62,31 +62,31 @@ nav li a:hover{
     position: absolute;
     text-align: center;
     opacity: 0;
-    visibility: hidden;    
+    visibility: hidden;
 }
 
 .dropdown-menu a{
-    
+
     height: 10%;
-    display: block;    
-    background-color: rgb(64, 83, 67);      
+    display: block;
+    background-color: rgb(64, 83, 67);
 }
 
 .dropdown:hover .dropdown-menu{
     opacity: 1;
-    visibility: visible; 
-    transition-delay: 0.2s;       
+    visibility: visible;
+    transition-delay: 0.2s;
 }
 
 .dropdown-menu a:hover{
-    background-color: rgb(49, 64, 52); 
+    background-color: rgb(49, 64, 52);
 }
 
 /*estilização do caminho de navegação - breadcrumb*/
 .ul-breadcrumb{
     display: flex;
     flex-direction: row;
-    justify-content:flex-start; 
+    justify-content:flex-start;
     align-items: center;
     width: 100%;
     height: 30%;
@@ -97,11 +97,11 @@ nav li a:hover{
 }
 
 .a-breadcrumb{
-   font-size: 1vw;      
+   font-size: 1vw;
 }
 
 
-li{    
+li{
     list-style-type: none;
 }
 
@@ -129,19 +129,19 @@ main{
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 5fr 1fr;
     justify-items:center;
-    align-items: center;    
+    align-items: center;
     background-color: #10403b;
     width: 95%;
     margin: auto;
     height: 70vh;
-    
+
 }
 
 form{
-    
+
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     height: 90%;
     margin-left: 3vw;
 }
@@ -193,7 +193,7 @@ input{
 }
 
 .botoes{
-    
+
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -201,16 +201,16 @@ input{
     width: 80vw;
 }
 
-.imagem{    
+.imagem{
     width: 20vw;
     height: 30vh;
-    
+
 }
 
 .btn-inseri-img{
     padding: 10px;
     width: 8vw;
-    color: white;    
+    color: white;
     font-weight: bolder;
     height: 10vh;
     background-color: rgb(248, 81, 9);
@@ -240,13 +240,13 @@ input{
 }
 
 /*Estilização do rodapé da página*/
-footer{ 
+footer{
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
     padding-left: 4%;
-    align-items: center; 
+    align-items: center;
     background-color: #053530;
-    height: 15%; 
+    height: 15%;
 }
 
 .img-logo{
@@ -310,4 +310,18 @@ footer a img:hover{
    transform: scale(1.3);
 }
 
-            
+/* Estilos de Erro de Validação */
+.input-group input.invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: none; 
+}
+
+.input-group input.invalid + .error-message,
+input.invalid + .error-message {
+    display: block;
+}
