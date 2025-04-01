@@ -1,0 +1,159 @@
+:root {
+    --verde-principal: #127369;
+    --verde-escuro: #10403B;
+    --cinza-esverdeado: #8AA6A3;
+    --cinza-esverdeado-escuro: #4C5958;
+    --cinza-claro: #BFBFBF;
+    --laranja: #A14707;
+}
+
+/* Reset e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at center, var(--verde-principal), var(--verde-escuro));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Layout */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.logo-container {
+    margin-bottom: 40px;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+
+.cadastro-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Formulário */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.cadastro-form button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    background-color: var(--laranja);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 40px auto;
+}
+
+.cadastro-form button:hover {
+    background-color: #8A2E07;
+}
+.cadastro-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilos de Erro */
+.input-group input.invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
+.input-group input.invalid+.error-message {
+    display: block;
+}
+
+/* Mensagens de Cadastro */
+.cadastro-message {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+.cadastro-message.success {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+}
+
+.cadastro-message.error {
+    background-color: #F8D7DA;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--laranja);
+  animation: spin 1s ease-in-out infinite;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Responsividade */
+@media (max-width: 600px) {
+    .cadastro-form button {
+        max-width: 100%;
+    }
+}
