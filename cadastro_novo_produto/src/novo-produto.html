@@ -9,13 +9,13 @@
 
 <body>
     <nav >
-    
-        
-        <ul class="container-nav"> 
+
+
+        <ul class="container-nav">
 
             <li class="dropdown">
 
-                <a href="#">Produtos</a>   
+                <a href="#">Produtos</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Cadastrar novo produto</a>
@@ -26,85 +26,85 @@
                     <a href="#">Histórico de venda</a>
                     <a href="#">Conferência do estoque</a>
                 </div>
-                
+
             </li>
 
             <li class="dropdown">
 
-                <a href="#">Vendas</a>   
+                <a href="#">Vendas</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Nova venda</a>
                     <a href="#">Editar venda</a>
-                    <a href="#">Excluir venda</a>                    
+                    <a href="#">Excluir venda</a>
                 </div>
-                
+
             </li>
 
             <li class="dropdown">
 
-                <a href="#">Fornecedor</a>   
+                <a href="#">Fornecedor</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Novo fornecedor</a>
                     <a href="#">Editar cadastro</a>
-                    <a href="#">Excluir cadastro</a>  
-                    <a href="#">Buscar fornecedor</a>                   
+                    <a href="#">Excluir cadastro</a>
+                    <a href="#">Buscar fornecedor</a>
                 </div>
-                
+
             </li>
 
             <li class="dropdown">
 
-                <a href="#">Cliente</a>   
+                <a href="#">Cliente</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Novo cliente</a>
                     <a href="#">Editar cadastro</a>
-                    <a href="#">Excluir cadastro</a>  
-                    <a href="#">Buscar cliente</a>                   
+                    <a href="#">Excluir cadastro</a>
+                    <a href="#">Buscar cliente</a>
                 </div>
-                
+
             </li>
 
             <li class="dropdown">
 
-                <a href="#">Trocas e devoluções</a>   
+                <a href="#">Trocas e devoluções</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Novo troca/devolução</a>
                     <a href="#">Editar cadastro</a>
-                    <a href="#">Excluir cadastro</a>  
-                    <a href="#">Buscar troca/devolução</a>                   
+                    <a href="#">Excluir cadastro</a>
+                    <a href="#">Buscar troca/devolução</a>
                 </div>
-                
+
             </li>
 
             <li class="dropdown">
 
-                <a href="#">Compras</a>   
+                <a href="#">Compras</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Nova compra</a>
                     <a href="#">Editar cadastro</a>
-                    <a href="#">Excluir cadastro</a>  
-                    <a href="#">Buscar compra</a>                   
+                    <a href="#">Excluir cadastro</a>
+                    <a href="#">Buscar compra</a>
                 </div>
-                
+
             </li>
 
             <li class="dropdown">
 
-                <a href="#">Configurações</a>   
+                <a href="#">Configurações</a>
 
                 <div class="dropdown-menu">
                     <a href="#">Novo usuário</a>
                     <a href="#">Editar cadastro</a>
-                    <a href="#">Excluir cadastro</a>  
-                    <a href="#">Buscar usuário</a>    
-                    <a href="#">Permissões do usuário</a>               
+                    <a href="#">Excluir cadastro</a>
+                    <a href="#">Buscar usuário</a>
+                    <a href="#">Permissões do usuário</a>
                 </div>
-                
+
             </li>
         </ul>
 
@@ -130,103 +130,113 @@
 
     <div class="container-menu">
         <h1>Novo Produto</h1>
-        <span class="abrir-menu" onclick="abrirMenu()">&#9776;</span>
+        <span class="abrir-menu" onclick="abrirMenu()">☰</span>
     </div>
 
-    <main>     
+    <main>
         <form>
-            <div>
-                <label for="">Código</label>
+            <div class="input-group">
+                <label for="codigo">Código</label>
                 <input type="text" id="codigo">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Descrição</label>
+
+            <div class="input-group">
+                <label for="descricao">Descrição</label>
                 <input type="text" id="descricao">
+                <span class="error-message"></span>
             </div>
 
-            <div>
-                <label for="">Unidade</label>
+            <div class="input-group">
+                <label for="unidade">Unidade</label>
                 <input type="text" id="unidade">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Preço da compra</label>
+
+            <div class="input-group">
+                <label for="preco-compra">Preço da compra</label>
                 <input type="text" id="preco-compra">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Margem</label>
+
+            <div class="input-group">
+                <label for="margem">Margem</label>
                 <input type="text" id="margem">
+                <span class="error-message"></span>
             </div>
 
-            <div>
-                <label for="">Preço da venda</label>
+            <div class="input-group">
+                <label for="preco-venda">Preço da venda</label>
                 <input type="text" id="preco-venda">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Preço a prazo</label>
+
+            <div class="input-group">
+                <label for="preco-prazo">Preço a prazo</label>
                 <input type="text" id="preco-prazo">
+                <span class="error-message"></span>
             </div>
 
-            <div>
-                <label for="">Código</label>
+            <div class="input-group">
+                <label for="codigo-fornecedor">Código do Fornecedor</label>
                 <input type="text" id="codigo-fornecedor">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Fornecedor</label>
+
+            <div class="input-group">
+                <label for="fornecedor">Fornecedor</label>
                 <input type="text" id="fornecedor">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Estoque mínimo</label>
+
+            <div class="input-group">
+                <label for="estoque-minimo">Estoque mínimo</label>
                 <input type="text" id="estoque-minimo">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Estoque atual</label>
+
+            <div class="input-group">
+                <label for="estoque-atual">Estoque atual</label>
                 <input type="text" id="estoque-atual">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Estoque máximo</label>
-                <input type="text" estoque-maximo>
+
+            <div class="input-group">
+                <label for="estoque-maximo">Estoque máximo</label>
+                <input type="text" id="estoque-maximo">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Lote</label>
+
+            <div class="input-group">
+                <label for="lote">Lote</label>
                 <input type="text" id="lote">
+                <span class="error-message"></span>
             </div>
-            
-            <div>
-                <label for="">Data de validade</label>
+
+            <div class="input-group">
+                <label for="data-validade">Data de validade</label>
                 <input type="date" id="data-validade">
+                <span class="error-message"></span>
             </div>
-
-                                   
-        </form>   
-
-        <div class="inserir-imagem">
-            <img class="imagem" src="../assets/imagem.svg" alt="">
-            <button class="btn-inseri-img">Inserir foto</button>
-        </div>
 
         <div class="botoes">
             <button id="btn-cancelar">Cancelar</button>
             <button id="btn-salvar">Salvar</button>
         </div>
+    </form>
 
-        
-        
-        
-        
+    <div class="inserir-imagem">
+        <img class="imagem" src="../assets/imagem.svg" alt="">
+        <button class="btn-inseri-img">Inserir foto</button>
+    </div>
+    
     </main>
+
+    <script src="../scripts/novo-produto-scripts.js"></script>
 
     <footer>
             <img class="img-logo" src="../../homepage/assets/logo_empresa.svg" alt="Logo da empresa">
-            
+
             <ul >
                 <li class="titulo-lista-footer">Inicio</li>
 
@@ -241,7 +251,7 @@
                 </li>
             </ul>
 
-            <ul ">
+            <ul >
                 <li class="titulo-lista-footer">Sobre nós</li>
 
                 <li>
@@ -269,7 +279,7 @@
                 </li>
             </ul>
 
-            
+
 
             <div class="img-container-redes-sociais">
 
@@ -280,25 +290,23 @@
                     <a href="#">
                         <img src="../../homepage/assets/facebook.svg" alt="facebook">
                     </a>
-                    
+
                     <a href="#">
                         <img href="#" src="../../homepage/assets/instagram.svg" alt="instagram">
                     </a>
-    
+
                     <a href="#">
                         <img src="../../homepage/assets/linkedin.svg" alt="linkedin">
                     </a>
-    
+
                     <a href="#">
                         <img src="../../homepage/assets/youtube.svg" alt="youtube">
                     </a>
                 </div>
 
             </div>
-           
+
     </footer>
 
-    <script src="../scripts/novo-produto-scripts.js"></script>
-    
 </body>
 </html>

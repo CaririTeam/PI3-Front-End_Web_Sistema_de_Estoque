@@ -1,6 +1,20 @@
-// novo-produto-scripts.js
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('novo-produto-scripts.js is running!');
     const form = document.querySelector('form');
+    console.log('Form element:', form); // Debugging: Check if form element is found
+
+    if (form) { // Check if form element is actually found
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Form submit event triggered!'); // Debugging: Check if submit event is triggered
+            if (validateForm()) {
+                alert('Formulário válido! (Simulação de envio)');
+            }
+        });
+    } else {
+        console.error('Form element not found!'); // Debugging: Error if form is not found
+    }
+
     // Inputs
     const codigoInput = document.getElementById('codigo');
     const descricaoInput = document.getElementById('descricao');
@@ -35,13 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let validationTimeout;
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        if (validateForm()) {
-            alert('Formulário válido! (Simulação de envio)'); // Substitua por envio real do formulário
-        }
-    });
-
     function validateForm() {
         let isValid = true;
 
@@ -72,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         isValid = validateRequired(dataValidadeInput, dataValidadeError) && isValid;
         isValid = validateDate(dataValidadeInput, dataValidadeError) && isValid;
         isValid = validateFutureDate(dataValidadeInput, dataValidadeError) && isValid;
-
 
         return isValid;
     }
@@ -193,6 +199,4 @@ document.addEventListener('DOMContentLoaded', function() {
     estoqueMaximoInput.addEventListener('focus', () => hideError(estoqueMaximoInput, estoqueMaximoError));
     loteInput.addEventListener('focus', () => hideError(loteInput, loteError));
     dataValidadeInput.addEventListener('focus', () => hideError(dataValidadeInput, dataValidadeError));
-
-
 });

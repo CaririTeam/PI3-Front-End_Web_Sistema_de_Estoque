@@ -318,10 +318,9 @@ footer a img:hover{
 .error-message {
     color: red;
     font-size: 14px;
-    display: none; 
+    display: none;
 }
 
-.input-group input.invalid + .error-message,
-input.invalid + .error-message {
+.input-group input.invalid + .error-message{
     display: block;
 }

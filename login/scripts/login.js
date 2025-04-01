@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                  if (responseData.token) {
                     localStorage.setItem('isAuthenticated', 'true');
                         setTimeout(() => {
-                            window.location.href = '../tela_inicial/tela-inicial.html';
+                            window.location.href = '../homepage/src/homepage.html';
                         }, 200);
                 } else {
                     showErrorMessage(loginMessage, 'Erro inesperado.  Token não recebido.');
