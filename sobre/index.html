@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre o Sistema</title>
+  <link rel="stylesheet" href="styles/sobre.css" />
+</head>
+
+<body>
+
+  <!-- 🌐 Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="../sobre/index.html">Início</a></li>
+      <li id="dashboard-item" style="display: none;"><a href="../tela_inicial/tela-inicial.html">Dashboard</a></li>
+      <li><a href="#">Produtos</a></li>
+      <li><a href="#">Contato</a></li>
+      <li id="user-item" style="display: none;">
+        <a href="#"><span class="user-icon">👤</span> Usuário</a>
+        <ul class="user-dropdown">
+          <li><a href="#">Configurações</a></li>
+          <li><a href="#" id="logout-link">Sair</a></li>
+        </ul>
+      </li>
+      <li id="login-item"><a href="../login/index.html" class="btn-login">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- 📝 Seção principal descritiva -->
+  <main class="sobre-container">
+    <section class="texto-sobre">
+      <h1>Chega de bagunça na hora de gerir seu estoque de mercado!</h1>
+      <p>Controle de estoque no caderno? Relatórios que não batem? Perdas que ninguém explica? O seu supermercado merece
+        mais.</p>
+      <p>Nosso sistema foi criado para donos de supermercados de bairro que querem sair do improviso e ter controle real
+        do seu negócio — sem complicação.</p>
+      <p>Descubra como centenas de supermercados de bairro estão economizando tempo e ganhando dinheiro com a nossa
+        solução.</p>
+      <a href="../cadastro/index.html" class="btn-call-to-action">Quero testar agora</a>
+    </section>
+
+    <section class="imagem-sobre">
+      <img src="../assets/images/about-sistema-gestao-estoque.jpg" alt="Ilustração do sistema em uso" />
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CaririTeam. Todos os direitos reservados.</p>
+  </footer>
+  <script src="scripts/sobre.js"></script>
+</body>
+
+</html>

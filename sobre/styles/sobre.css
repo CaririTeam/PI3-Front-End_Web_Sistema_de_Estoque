@@ -1,0 +1,196 @@
+:root {
+    --cor-primaria: #10403B;
+    --cor-secundaria: #A14707;
+    --cor-fundo: #f5f5f5;
+    --cor-texto: #333;
+    --cor-texto-claro: #f8f8f8;
+    --cor-link: #007bff;
+    --cor-botao: var(--cor-secundaria);
+    --cor-botao-hover: #8A2E07;
+    --cor-footer: #222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    list-style: none;
+    background-color: var(--cor-primaria);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar li {
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.navbar a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown do Usuário */
+.user-dropdown {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #122826;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    display: none;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.user-dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mostra o dropdown no hover */
+.navbar li:hover .user-dropdown {
+    display: block;
+}
+
+.btn-login {
+    background-color: var(--cor-botao);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+.sobre-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.texto-sobre {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+.texto-sobre h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-primaria);
+}
+
+.texto-sobre p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-call-to-action {
+    display: inline-block;
+    background-color: var(--cor-botao);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-call-to-action:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+.imagem-sobre {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.imagem-sobre img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: var(--cor-footer);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .sobre-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .texto-sobre {
+        text-align: left;
+        margin-bottom: 0;
+        flex: 1;
+        margin-right: 2rem;
+    }
+
+    .imagem-sobre {
+        flex: 1
+    }
+
+    .navbar {
+        justify-content: flex-end; /* Mantém o alinhamento à direita */
+    }
+}
+
+@media (min-width: 1024px) {
+    .texto-sobre h1 {
+        font-size: 3rem;
+    }
+
+    .texto-sobre p {
+        font-size: 1.2rem;
+    }
+}
