@@ -43,7 +43,7 @@ Siga estes passos para executar o projeto no seu ambiente local:
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone PI3-Front-End_Web_Sistema_de_Estoque
+    git clone https://github.com/CaririTeam/PI3-Front-End_Web_Sistema_de_Estoque
     ```
 
 2.  **Navegue até o Diretório do Projeto:**
