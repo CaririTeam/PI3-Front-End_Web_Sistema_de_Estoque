@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="../styles/styles-produtos.css">
+    <link rel="stylesheet" href="../styles/novo-produto-styles.css">
 </head>
 
 <body>
@@ -123,62 +123,98 @@
     </nav>
 
     <div class="container-menu">
-        <h1>Produtos</h1>
+        <h1>Novo Produto</h1>
         <span class="abrir-menu" onclick="abrirMenu()">&#9776;</span>
     </div>
 
-    <main>        
+    <main>     
+        <form>
+            <div>
+                <label for="">Código</label>
+                <input type="text" id="codigo">
+            </div>
+            
+            <div>
+                <label for="">Descrição</label>
+                <input type="text" id="descricao">
+            </div>
+
+            <div>
+                <label for="">Unidade</label>
+                <input type="text" id="unidade">
+            </div>
+            
+            <div>
+                <label for="">Preço da compra</label>
+                <input type="text" id="preco-compra">
+            </div>
+            
+            <div>
+                <label for="">Margem</label>
+                <input type="text" id="margem">
+            </div>
+
+            <div>
+                <label for="">Preço da venda</label>
+                <input type="text" id="preco-venda">
+            </div>
+            
+            <div>
+                <label for="">Preço a prazo</label>
+                <input type="text" id="preco-prazo">
+            </div>
+
+            <div>
+                <label for="">Código</label>
+                <input type="text" id="codigo-fornecedor">
+            </div>
+            
+            <div>
+                <label for="">Fornecedor</label>
+                <input type="text" id="fornecedor">
+            </div>
+            
+            <div>
+                <label for="">Estoque mínimo</label>
+                <input type="text" id="estoque-minimo">
+            </div>
+            
+            <div>
+                <label for="">Estoque atual</label>
+                <input type="text" id="estoque-atual">
+            </div>
+            
+            <div>
+                <label for="">Estoque máximo</label>
+                <input type="text" estoque-maximo>
+            </div>
+            
+            <div>
+                <label for="">Lote</label>
+                <input type="text" id="lote">
+            </div>
+            
+            <div>
+                <label for="">Data de validade</label>
+                <input type="date" id="data-validade">
+            </div>
+
+                                   
+        </form>   
+
+        <div class="inserir-imagem">
+            <img class="imagem" src="../assets/imagem.svg" alt="">
+            <button class="btn-inseri-img">Inserir foto</button>
+        </div>
+
+        <div class="botoes">
+            <button id="btn-cancelar">Cancelar</button>
+            <button id="btn-salvar">Salvar</button>
+        </div>
+
         
-        <div>
-            <a href="#">
-                <img src="../assets/novoProduto.svg" alt="Novo Produto">
-            </a>
-            <span>Novo Produto</span>
-        </div>
-
-        <div>
-            <a href="#">
-                <img src="../assets/buscarProduto.svg" alt="Buacar Produto">
-            </a>
-            <span>Buacar Produto</span>
-        </div>
-
-        <div>
-            <a href="#">
-                <img src="../assets/editarProduto.svg" alt="Editar Produto">
-            </a>
-            <span>Editar Produto</span>
-        </div>
-
-        <div>
-            <a class="img-especificos" href="#">
-                <img src="../assets/excluirProduto.svg" alt="Excluir Produto">
-            </a>
-            <span>Excluir Produto</span>
-        </div>
-
-        <div>
-            <a href="#">
-                <img src="../assets/historicoCompras.svg" alt="Histórico de compras">
-            </a>
-            <span>Histórico de compras</span>
-        </div>
-
-        <div>
-            <a class="img-compras" href="#">
-                <img src="../assets/historicoVendas.svg" alt="Histórico de vendas">
-            </a>
-            <span>Histórico de vendas</span>
-        </div>
-
-        <div>
-            <a class="img-especificos" href="#">
-                <img src="../assets/conferirEstoque.svg" alt="Conferir estoque">
-            </a>
-            <span>Conferir estoque</span>
-        </div>
-
-             
+        
+        
         
     </main>
 
@@ -256,7 +292,7 @@
            
     </footer>
 
-    <script src="../scripts/scripts-produtos.js"></script>
+    <script src="../scripts/novo-produto-scripts.js"></script>
     
 </body>
 </html>

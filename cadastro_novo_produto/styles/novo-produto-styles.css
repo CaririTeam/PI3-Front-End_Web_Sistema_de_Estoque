@@ -1,0 +1,418 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{    
+    background-color: #252121;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Estilização do menu dropdown */
+nav{
+    display: flex;
+    flex-direction: column;
+    min-height: 15%;
+    justify-content: space-around;
+    
+}
+
+.container-nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: #10403b;  
+    height: 12vh;
+    width: 100%;
+}
+
+nav li{
+    display: block;
+    
+}
+
+nav li a{
+    display: flex;
+    font-size: clamp(10px, 1.5vw, 1.5vw);
+    color: white;
+    align-items: center;
+    height: 100%;
+    
+}
+
+nav li div a{
+    display: inline-block;
+    padding: 15px;
+    font-size: clamp(8px, 1.2vw, 1.2vw);
+    color:white;
+    
+}
+
+nav li a:hover{
+    font-weight: bolder;
+}
+
+.dropdown-menu{
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;    
+}
+
+.dropdown-menu a{
+    
+    height: 10%;
+    display: block;    
+    background-color: rgb(64, 83, 67);      
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible; 
+    transition-delay: 0.2s;       
+}
+
+.dropdown-menu a:hover{
+    background-color: rgb(49, 64, 52); 
+}
+
+/*estilização do caminho de navegação - breadcrumb*/
+.ul-breadcrumb{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start; 
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    gap: 2%;
+    border-bottom: 2px solid #10403b;
+    padding-left: 2%;
+
+}
+
+.a-breadcrumb{
+   font-size: 1vw;      
+}
+
+
+li{    
+    list-style-type: none;
+}
+
+/*Titulo do página - Sistema de gerenciamento de estoque*/
+h1{
+    padding-top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(20px, 2.5vw, 2.5vw);
+    text-align: center;
+    height: 8%;
+}
+
+.container-menu{
+    width: 100vw;
+}
+
+.abrir-menu{
+    visibility: hidden;
+}
+
+/*Estilização dos botões principais no centro da tela*/
+main{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 5fr 1fr;
+    justify-items:center;
+    align-items: center;    
+    background-color: #10403b;
+    width: 95%;
+    margin: auto;
+    height: 70vh;
+    
+}
+
+form{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    height: 90%;
+    margin-left: 3vw;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 0px 10px;
+}
+
+input{
+    height: 40%;
+}
+
+#codigo{
+    width: 10vw;
+}
+
+#descricao{
+    width: 62vw;
+}
+
+#unidade{
+    width: 8vw;
+}
+
+#codigo-fornecedor{
+    width: 10vw;
+}
+
+#fornecedor{
+    width: 54.5vw;
+}
+
+#estoque-atual, #estoque-minimo, #estoque-maximo, #lote, #data-validade{
+    width: 11.5vw;
+}
+
+.inserir-imagem{
+    position: relative;
+    bottom: 12vh;
+    right: 5vw;
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 4vh;
+    text-align: center;
+    align-items: center;
+}
+
+.botoes{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 80vw;
+}
+
+.imagem{    
+    width: 20vw;
+    height: 30vh;
+    
+}
+
+.btn-inseri-img{
+    padding: 10px;
+    width: 8vw;
+    color: white;    
+    font-weight: bolder;
+    height: 10vh;
+    background-color: rgb(248, 81, 9);
+    border-radius: 5px;
+    font-size: 1vw;
+}
+
+#btn-salvar{
+    width: 10vw;
+    color: white;
+    font-weight: bolder;
+    height: 8vh;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 1.5vw;
+}
+
+
+#btn-cancelar{
+    width: 10vw;
+    color: white;
+    font-weight: bolder;
+    height: 8vh;
+    background-color:red;
+    border-radius: 5px;
+    font-size: 1.5vw;
+}
+
+/*Estilização do rodapé da página*/
+footer{ 
+    display: flex;
+    justify-content: space-around; 
+    padding-left: 4%;
+    align-items: center; 
+    background-color: #053530;
+    height: 15%; 
+}
+
+.img-logo{
+    height: 80%;
+    border-radius: 5px;
+}
+
+.img-redes-sociais{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.img-container-redes-sociais{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 70%;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: clamp(7px, 0.7vw, 0.7vw);
+}
+
+footer a img{                               /*Estilização das imagens do rodapé*/
+    width: 70%;
+    height: 70%;
+}
+
+footer img{
+    width: 10%;
+}
+
+footer a, li, div{
+    color: rgb(144, 148, 148);
+}
+
+footer li{
+    padding-bottom: 5px;
+}
+
+.titulo-lista-footer{
+    font-weight: bolder;
+    font-size: clamp(9px, 1vw, 1vw);
+    padding-bottom: 10px;
+}
+
+footer a:hover{
+    font-weight: bolder;
+}
+
+footer a img:hover{
+   transform: scale(1.3);
+}
+
+
+
+/* Uso de media queries */
+
+@media (max-width: 428px){
+
+   
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .ul-breadcrumb{
+        display: none;
+    }
+   
+
+    .container-nav{
+        visibility: hidden;
+        opacity: 0;
+       
+    }
+
+    .mostrar-nav{
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;  
+        width: 50%;
+        height: 500px;
+        top: 70px;
+        left: 50%;
+        z-index: 1;
+        background-color:#10403b;
+        text-align: end;
+    }
+
+   
+    nav ul li a{
+        height: 50px;
+    }
+
+    /*h1 mais botao hamburguer*/
+    .container-menu{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        height: 15%;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #10403b;
+        position: absolute;
+        top: 0;                       /*Leva h1 para o topo*/
+        left: 0;
+        padding-left: 10px;
+        
+    }
+
+    .dropdown-menu{
+        width: 100%;        
+        left: 0;
+     }
+
+    h1{
+        height: 50%;
+        width: 75%;
+    }
+
+    .abrir-menu{
+        z-index: 2;
+        visibility: visible;
+        width: 20%;
+        font-size: 6vh;
+        background-color:#10403b ;
+        color: white;
+        text-align: start;
+        cursor: pointer;
+    }
+    
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    
+    main div{
+        height: 80%;
+        width: 70%;
+        margin : 10px 0px 10px 0px;
+    }
+
+    footer{
+        flex-shrink: 0;
+        width: 100vw;
+        height: 15%;
+    }
+
+   
+        
+}
