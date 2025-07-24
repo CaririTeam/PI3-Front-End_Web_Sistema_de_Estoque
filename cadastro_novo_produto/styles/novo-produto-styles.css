@@ -84,6 +84,7 @@ nav li a:hover{
 }
 
 /*estilização do caminho de navegação - breadcrumb*/
+
 .ul-breadcrumb{
     display: flex;
     flex-direction: row;
@@ -107,6 +108,7 @@ li{
 }
 
 /*Titulo da página - Sistema de gerenciamento de estoque*/
+
 h1{
     padding-top: 10px;
     color: white;
@@ -118,6 +120,7 @@ h1{
 
 .container-menu{
     width: 100vw;
+    height: 8vh;
 }
 
 .abrir-menu{
@@ -128,125 +131,125 @@ h1{
 
 /*Estilização dos campos do formulário do centro da tela*/
 
+/*Grid áreas*/
 
-
-main{
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    grid-template-rows: 5fr 1fr;
-    justify-items:center;
-    align-items: center;
-    background-color: #10403b;
-    width: 95%;
-    margin: auto;
-    height: 70vh;
-
+.input-cod{
+    grid-area: input-cod;
+}
+.input-descricao{    
+    grid-area: input-descricao;    
+}
+.input-und{
+    grid-area: input-und;
+}
+.input-input-preco-compra{
+    grid-area: input-preco-compra;
+}
+.input-margem{
+    grid-area: input-margem;
+}
+.input-preco-venda{
+    grid-area: input-preco-venda;
+}
+.input-preco-prazo{
+    grid-area: input-preco-prazo;
+}
+.input-cod-fornecedor{
+    grid-area: input-cod-fornecedor;   
+}
+.input-fornecedor{
+    grid-area: input-fornecedor;    
+}
+.input-estoque-min{
+    grid-area: input-estoque-min;
+}
+.input-estoque-atual{
+    grid-area: input-estoque-atual;
+}
+.input-estoque-max{
+    grid-area: input-estoque-max;
+}
+.input-lote{
+    grid-area: input-lote;
+}
+.input-data-validade{   
+    grid-area: input-data-validade;
 }
 
 
-form{
+.main-container {
+    display: grid;    
+    height: 60vh;
+    margin-left: 1vw;
+    grid-template-columns: 4fr 1fr;  
+}
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 90%;
-    margin-left: 3vw;
+form input{
+    height: 4vh;
 }
 
 form div{
     display: flex;
     flex-direction: column;
-    margin: 0px 10px 0px 10px;
 }
 
-input{
-    height: 40%;
-}
 
-#codigo{
-    width: 10vw;
-}
 
-#descricao{
-    width: 62vw;
-}
-
-#unidade{
-    width: 8vw;
-}
-
-#codigo-fornecedor{
-    width: 10vw;
-}
-
-#fornecedor{
-    width: 54.5vw;
-}
-
-#estoque-atual, #estoque-minimo, #estoque-maximo, #lote, #data-validade{
-    width: 11.5vw;
-}
-
-/*Campo para inserção de imagem do produto*/
-
-.inserir-imagem{
-    position: relative;
-    bottom: 12vh;
-    right: 5vw;
-    display: flex;
-    flex-direction: column;
-    width: 10vw;
-    height: 4vh;
-    text-align: center;
-    align-items: center;
+.form-grid {         /*Classe pai dos inputs*/
+    display: grid;  
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas */
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;    
+    font-size: 1vw;
+    grid-template-areas: "input-cod input-descricao input-descricao input-descricao input-descricao"
+                        "input-und input-preco-compra input-margem input-preco-venda input-preco-prazo"
+                        "input-cod-fornecedor input-fornecedor input-fornecedor input-fornecedor input-fornecedor"
+                        "input-estoque-min input-estoque-atual input-estoque-max input-lote input-data-validade"                        
+    ;
 }
 
 .botoes{
-
     display: flex;
     flex-direction: row;
     justify-content: end;
-    align-items: center;
-    width: 80vw;
+}
+#btn-cancelar {
+    background-color: #c53434;
+    color: white;
+    width: 10vw;
+    height: 7vh;
+    justify-self: center;
 }
 
-.imagem{
+#btn-salvar {
+    background-color: #4CAF50;
+    color: white;
+    width: 10vw;
+    height: 7vh;
+    justify-self: center;
+}
+
+ /*Espaço para imagem */
+
+.inserir-imagem {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.imagem {
+    padding: 0%;
     width: 20vw;
-    height: 30vh;
-
+    height: 20vw; 
+    opacity: 0.5;
 }
 
-.btn-inseri-img{
-    padding: 10px;
-    width: 8vw;
-    color: white;
-    font-weight: bolder;
-    height: 10vh;
-    background-color: rgb(248, 81, 9);
-    border-radius: 5px;
-    font-size: 1vw;
-}
-
-#btn-salvar{
+.btn-inseri-img {
     width: 10vw;
-    color: white;
-    font-weight: bolder;
-    height: 8vh;
-    background-color: green;
-    border-radius: 5px;
-    font-size: 1.5vw;
+    height: 7vh;
+    cursor: pointer;
 }
 
-
-#btn-cancelar{
-    width: 10vw;
-    color: white;
-    font-weight: bolder;
-    height: 8vh;
-    background-color:red;
-    border-radius: 5px;
-    font-size: 1.5vw;
-}
 
 
 

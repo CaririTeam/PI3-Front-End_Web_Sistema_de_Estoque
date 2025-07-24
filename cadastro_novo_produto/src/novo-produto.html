@@ -133,109 +133,98 @@
         <span class="abrir-menu" onclick="abrirMenu()">☰</span>
     </div>
 
-    <main>
-        <form>
+    <main class="main-container">
 
-            <div>
-                <div class="input-group">
-                    <label for="codigo">Código</label>
-                    <input type="text" id="codigo">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="descricao">Descrição</label>
-                    <input type="text" id="descricao">
-                    <span class="error-message"></span>
-                </div>
+        
+        <form class="form-grid">
+            <!--Linha 1-->                
+            <div class="input-cod">
+                <label for="codigo">Código</label>
+                <input type="text" id="codigo">
+                <span class="error-message"></span>    
             </div>
-
-           <div>
-                <div class="input-group">
-                    <label for="unidade">Unidade</label>
-                    <input type="text" id="unidade">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="preco-compra">Preço da compra</label>
-                    <input type="text" id="preco-compra">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="margem">Margem</label>
-                    <input type="text" id="margem">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
+            <div class="input-descricao">
+                <label for="descricao">Descrição</label>
+                <input type="text" id="descricao">
+                <span class="error-message"></span>
+            </div>
+            
+                
+            <!--Linha 2-->                
+            <div class="input-und">
+                <label for="unidade">Unidade</label>
+                <input type="text" id="unidade" >
+                <span class="error-message"></span>  
+            </div>  
+            <div class="input-preco-compra">
+                <label for="preco-compra">Preço da compra</label>
+                <input type="text" id="preco-compra">
+                <span class="error-message"></span>
+            </div>    
+            <div class="input-margem">
+                <label for="margem">Margem</label>
+                <input type="text" id="margem">
+                <span class="error-message"></span>   
+            </div> 
+            <div class="input-preco-venda">
                     <label for="preco-venda">Preço da venda</label>
-                    <input type="text" id="preco-venda">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="preco-prazo">Preço a prazo</label>
-                    <input type="text" id="preco-prazo">
-                    <span class="error-message"></span>
-                </div>
-           </div>
-
-           <div>
-                <div class="input-group">
-                    <label for="codigo-fornecedor">Código do Fornecedor</label>
-                    <input type="text" id="codigo-fornecedor">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="fornecedor">Fornecedor</label>
-                    <input type="text" id="fornecedor">
-                    <span class="error-message"></span>
-                </div>
-           </div>
-
-
-           <div>
-                <div class="input-group">
-                    <label for="estoque-minimo">Estoque mínimo</label>
-                    <input type="text" id="estoque-minimo">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="estoque-atual">Estoque atual</label>
-                    <input type="text" id="estoque-atual">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="estoque-maximo">Estoque máximo</label>
-                    <input type="text" id="estoque-maximo">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="lote">Lote</label>
-                    <input type="text" id="lote">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="input-group">
-                    <label for="data-validade">Data de validade</label>
-                    <input type="date" id="data-validade">
-                    <span class="error-message"></span>
-                </div>
-           </div>
-
-           
-
-            <div class="botoes">
-                <button id="btn-cancelar">Cancelar</button>
-                <button id="btn-salvar">Salvar</button>
+                <input type="text" id="preco-venda">
+                <span class="error-message"></span>    
             </div>
+            <div class="input-preco-prazo">
+                <label for="preco-prazo">Preço a prazo</label>
+                <input type="text" id="preco-prazo">
+                <span class="error-message"></span>
+            </div>
+            
+        
+            <!--Linha 3-->                
+            <div class="input-cod-fornecedor">
+                <label for="codigo-fornecedor">Código do Fornecedor</label>
+                    <input type="text" id="codigo-fornecedor">
+                    <span class="error-message"></span> 
+            </div>   
+            <div class="input-fornecedor">
+                <label for="fornecedor">Fornecedor</label>
+                <input type="text" id="fornecedor">
+                <span class="error-message"></span>
+            </div>
+            
+
+            <!--Linha 4-->                
+            <div class="input-estoque-min">
+                <label for="estoque-minimo">Estoque mínimo</label>
+                <input type="text" id="estoque-minimo">
+                <span class="error-message"></span>   
+            </div> 
+            <div class="input-estoque-atual">
+                <label for="estoque-atual">Estoque atual</label>
+                <input type="text" id="estoque-atual">
+                <span class="error-message"></span>  
+            </div>  
+            <div class="input-estoque-max">
+                <label for="estoque-maximo">Estoque máximo</label>
+                <input type="text" id="estoque-maximo">
+                <span class="error-message"></span> 
+            </div>   
+            <div class="input-lote">
+                <label for="lote">Lote</label>
+                <input type="text" id="lote">
+                <span class="error-message"></span>                        
+            </div>
+            <div class="input-data-validade">
+                <label for="data-validade">Data de validade</label>
+                <input type="date" id="data-validade">
+                <span></span>
+            </div>    
+
+             <!--Linha 5-->
+            
+            <button type="submit" id="btn-cancelar" class="btn1">Cancelar</button>
+            <button type="submit" id="btn-salvar" class="btn2">Salvar</button>
+            
         </form>
+    
 
         <div class="inserir-imagem">
             <img class="imagem" src="../assets/imagem.svg" alt="">
