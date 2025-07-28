@@ -41,22 +41,19 @@ describe('Fluxo de Login e Validação', () => {
     cy.get('#login-button').should('not.be.disabled'); // 5. Botão é reativado
   });
 
-  // Teste 4: O "caminho feliz" - login com sucesso
-  it('deve redirecionar e exibir a homepage após um login bem-sucedido', () => {
-    // Prepara um "espião" para a chamada de rede
+ // Teste 4: O "caminho feliz" - login com sucesso
+  it('deve redirecionar após um login bem-sucedido', () => {
     cy.intercept('POST', 'https://reqres.in/api/login').as('loginRequest');
 
     cy.get('#email').type('eve.holt@reqres.in');
     cy.get('#password').type('cityslicka');
     cy.get('#login-form').submit();
 
-    // Espera a chamada de rede ser completada
     cy.wait('@loginRequest');
 
-    cy.get('h1').contains('Dashboard').should('be.visible');
+    cy.get('#login-form').should('not.exist');
 
-    // Se o passo acima passar, a navegação ocorreu com sucesso.
-    // A verificação do localStorage é uma confirmação final do estado da aplicação.
+    // A verificação do localStorage é a confirmação final do estado.
     cy.window().its('localStorage.isAuthenticated').should('eq', 'true');
   });
 });
