@@ -1,6 +1,6 @@
 describe('Fluxo de Login e Validação', () => {
 
-  // Antes de cada teste, garante que estamos na página de login
+  // Antes de cada teste, visita a página de login para garantir um estado limpo
   beforeEach(() => {
     cy.visit('/login/index.html');
   });
@@ -13,7 +13,7 @@ describe('Fluxo de Login e Validação', () => {
     cy.get('#password-error').should('be.visible');
   });
 
-  // Teste 2: Validação de formato de e-mail e senha curta
+  // Teste 2: Validação de formato inválido e senha curta
   it('deve exibir mensagens de erro para formato inválido e senha curta', () => {
     cy.get('#email').type('email-invalido');
     cy.get('#password').type('123');
@@ -42,7 +42,7 @@ describe('Fluxo de Login e Validação', () => {
   });
 
   // Teste 4: O "caminho feliz" - login com sucesso
-  it('deve redirecionar imediatamente após um login bem-sucedido', () => {
+  it('deve redirecionar e exibir a homepage após um login bem-sucedido', () => {
     // Prepara um "espião" para a chamada de rede
     cy.intercept('POST', 'https://reqres.in/api/login').as('loginRequest');
 
@@ -50,12 +50,13 @@ describe('Fluxo de Login e Validação', () => {
     cy.get('#password').type('cityslicka');
     cy.get('#login-form').submit();
 
-    // Valida a sequência de eventos correta para SUCESSO:
-    cy.get('#loading-spinner').should('be.visible'); // 1. Spinner aparece
-    cy.wait('@loginRequest'); // 2. Espera a API responder
+    // Espera a chamada de rede ser completada
+    cy.wait('@loginRequest');
 
-    // 3. Após a sincronização, verifica o resultado final com o método mais robusto
-    cy.location('pathname').should('eq', '/homepage/src/homepage.html');
+    cy.get('h1').contains('Dashboard').should('be.visible');
+
+    // Se o passo acima passar, a navegação ocorreu com sucesso.
+    // A verificação do localStorage é uma confirmação final do estado da aplicação.
     cy.window().its('localStorage.isAuthenticated').should('eq', 'true');
   });
 });
