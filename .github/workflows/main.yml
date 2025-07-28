@@ -1,15 +1,12 @@
 name: CI - Lint e Testes E2E
 
-# Define os gatilhos que iniciarão o workflow
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# Define os trabalhos (jobs) a serem executados
 jobs:
-  # Primeiro job: Verificação de qualidade com ESLint
   lint:
     name: Verificação de Qualidade (Lint)
     runs-on: ubuntu-latest
@@ -25,10 +22,12 @@ jobs:
       - name: 3. Instalando dependências
         run: npm install
 
-      - name: 4. Executando o Lint
+      - name: 4. Corrigindo permissão de execução
+        run: chmod +x ./node_modules/.bin/eslint
+
+      - name: 5. Executando o Lint
         run: npm run lint
 
-  # Segundo job: Testes de ponta a ponta com Cypress
   e2e-tests:
     name: Testes End-to-End (Cypress)
     runs-on: ubuntu-latest
