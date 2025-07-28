@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // SUCESSO!
                 localStorage.setItem('isAuthenticated', 'true');
                 // Redireciona IMEDIATAMENTE. Sem setTimeout.
-                window.location.href = '../homepage/src/homepage.html';
+                window.location.href = '/homepage/src/homepage.html';
 
             } else {
                 // FALHA (seja da API ou token ausente)
