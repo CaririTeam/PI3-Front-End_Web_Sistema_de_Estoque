@@ -1,5 +1,3 @@
-// cypress/e2e/login.cy.js
-
 describe('Fluxo de Login e Validação', () => {
 
   // Antes de cada teste, garante que estamos na página de login
@@ -7,18 +5,19 @@ describe('Fluxo de Login e Validação', () => {
     cy.visit('/login/index.html');
   });
 
-  // Teste 1: Validação de campos obrigatórios (a lógica não mudou)
+  // Teste 1: Validação de campos obrigatórios
   it('deve exibir mensagens de erro para campos obrigatórios', () => {
-    // A forma mais robusta de testar validação é disparar o evento submit
+    // Aciona o evento de submit diretamente no formulário - a forma mais robusta
     cy.get('#login-form').submit();
     cy.get('#email-error').should('be.visible');
     cy.get('#password-error').should('be.visible');
   });
 
-  // Teste 2: Validação de formato inválido (a lógica não mudou)
+  // Teste 2: Validação de formato de e-mail e senha curta
   it('deve exibir mensagens de erro para formato inválido e senha curta', () => {
     cy.get('#email').type('email-invalido');
     cy.get('#password').type('123');
+    // Aciona o submit diretamente
     cy.get('#login-form').submit();
 
     cy.get('#email-error').should('be.visible').and('contain.text', 'E-mail inválido.');
@@ -55,9 +54,8 @@ describe('Fluxo de Login e Validação', () => {
     cy.get('#loading-spinner').should('be.visible'); // 1. Spinner aparece
     cy.wait('@loginRequest'); // 2. Espera a API responder
 
-    // 3. Após a espera da API, o redirecionamento já deve ter ocorrido.
-    //    Verificamos o resultado final.
-    cy.url().should('include', '/homepage/src/homepage.html');
+    // 3. Após a sincronização, verifica o resultado final com o método mais robusto
+    cy.location('pathname').should('eq', '/homepage/src/homepage.html');
     cy.window().its('localStorage.isAuthenticated').should('eq', 'true');
   });
 });
