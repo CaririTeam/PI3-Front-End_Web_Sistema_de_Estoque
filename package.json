@@ -1,0 +1,18 @@
+{
+  "name": "pi3-front-end_web_sistema_de_estoque",
+  "version": "1.0.0",
+  "description": "Front-end de um sistema web de gestão de estoque para supermercados.",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "test": "cypress run",
+    "start": "http-server -p 8080"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "cypress": "^13.13.0",
+    "eslint": "^8.57.1",
+    "globals": "^16.3.0",
+    "http-server": "^14.1.1"
+  }
+}
