@@ -5,30 +5,40 @@ import js from "@eslint/js";
 import cypress from "eslint-plugin-cypress";
 
 export default [
-  // 1. Configuração Global para todo o projeto
+  // 1. Configuração Global para arquivos JavaScript do projeto (código da aplicação)
   {
-    files: ["**/*.js"], // Aplica-se a todos os arquivos .js
+    files: ["**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
       globals: {
-        ...globals.browser, // Adiciona todos os globais do navegador (document, window, etc)
+        ...globals.browser, // Define que o ambiente é de navegador (window, document, etc)
       },
     },
     rules: {
-      ...js.configs.recommended.rules, // Aplica as regras recomendadas do ESLint
+      ...js.configs.recommended.rules,
     },
   },
 
-  // 2. Configuração Específica para os testes do Cypress
+  // 2. Configuração específica para o arquivo de configuração do Cypress
   {
-    files: ["cypress/**/*.cy.js"], // Aplica-se APENAS aos arquivos de teste do Cypress
+    files: ["cypress.config.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node, // Define que este arquivo roda em ambiente Node.js (require, module, etc)
+      },
+    }
+  },
+
+  // 3. Configuração específica para os arquivos de teste do Cypress
+  {
+    files: ["cypress/e2e/**/*.cy.js"],
     plugins: {
       cypress,
     },
     languageOptions: {
       globals: {
-        ...cypress.configs.recommended.globals,
+        ...cypress.configs.recommended.globals, // Adiciona os globais do Cypress (cy, describe, it, etc)
       },
     },
     rules: {
@@ -36,11 +46,8 @@ export default [
     },
   },
 
-  // 3. Ignora arquivos e pastas que não devem ser verificados
+  // 4. Ignora arquivos e pastas que o ESLint não deve verificar
   {
-    ignores: [
-        "node_modules/",
-        ".github/"
-    ],
+    ignores: ["node_modules/", ".github/"],
   },
 ];
