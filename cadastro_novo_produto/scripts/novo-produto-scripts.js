@@ -1,6 +1,7 @@
+
 document.addEventListener('DOMContentLoaded', function() {  //Checa se o documento terminou de carregar
     console.log('novo-produto-scripts.js is running!');  //imprime mensagem
-    const form = document.querySelector('form'); //procura pelo 1º formulário
+    const form = document.getElementById('form-principal'); //procura pelo 1º formulário
     console.log('Formularios:', form); // checa se o fomrulário existe
 
     if (form) { // verifica se o form não é nulo
@@ -8,7 +9,32 @@ document.addEventListener('DOMContentLoaded', function() {  //Checa se o documen
             event.preventDefault(); //impede o envio automatico
             console.log('Envento de envio de formulário disparado!'); // checa se o evento foi disparado
             if (validaForm()) { // chama a função de validação (abixo)
+
+                const novosDados = {
+                    codigo : form.codigo.value,
+                    descricao : form.descricao.value,
+                    unidade : form.unidade.value,
+                    preco_compra : form.precoCompra.value,
+                    margem : form.margem.value,
+                    preco_venda : form.precoVenda.value,
+                    preco_prazo : form.precoPrazo.value,
+                    codigo_fornecedor : form.codigoFornecedor.value,
+                    fornecedor : form.fornecedor.value,
+                    estoque_minimo : form.estoqueMinimo.value,
+                    estoque_atual : form.estoqueAtual.value,
+                    estoque_maximo : form.estoqueMaximo.value,
+                    lote : form.lote.value,
+                    data_validade : form.dataValidade.value
+                };
+
+                const chave = 'produto_' + String(form.codigo.value);
+
+                localStorage.setItem(chave, JSON.stringify(novosDados));              
+
                 alert('Dados salvos com sucesso!');
+                window.location.href = '../../tela_produtos/src/produtos.html';
+                form.reset()
+               
             }
         });
     } else {
