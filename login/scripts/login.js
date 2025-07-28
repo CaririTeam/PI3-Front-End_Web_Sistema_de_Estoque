@@ -14,13 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
+        // 1. Validação inicial
         if (!validateForm()) {
-            return;
+            return; // Para a execução se a validação falhar
         }
 
+        // 2. Inicia o estado de carregamento
+        loginButton.disabled = true;
+        loadingSpinner.style.display = 'block';
+
         try {
-            loginButton.disabled = true;
-            loadingSpinner.style.display = 'block';
             const data = {
                 email: emailInput.value.trim(),
                 password: passwordInput.value.trim()
@@ -28,34 +31,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const response = await fetch(API_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
 
             const responseData = await response.json();
 
-            if (response.ok) {
-                 if (responseData.token) {
-                    localStorage.setItem('isAuthenticated', 'true');
-                        setTimeout(() => {
-                            window.location.href = '../homepage/src/homepage.html';
-                        }, 200);
-                } else {
-                    showErrorMessage(loginMessage, 'Erro inesperado.  Token não recebido.');
-                }
+            // 3. Verifica o resultado da API
+            if (response.ok && responseData.token) {
+                // SUCESSO!
+                localStorage.setItem('isAuthenticated', 'true');
+                // Redireciona IMEDIATAMENTE. Sem setTimeout.
+                window.location.href = '../homepage/src/homepage.html';
 
             } else {
+                // FALHA (seja da API ou token ausente)
                 const errorMessage = responseData.error || 'E-mail ou senha incorretos.';
-                 showErrorMessage(loginMessage, errorMessage);
+                showErrorMessage(loginMessage, errorMessage);
+                
+                // Reseta a UI APENAS em caso de falha
+                loginButton.disabled = false;
+                loadingSpinner.style.display = 'none';
             }
 
         } catch (error) {
+            // FALHA DE REDE
             showErrorMessage(loginMessage, 'Erro ao conectar com o servidor.');
             console.error('Erro na requisição:', error);
 
-        } finally {
+            // Reseta a UI APENAS em caso de falha
             loginButton.disabled = false;
             loadingSpinner.style.display = 'none';
         }
@@ -106,14 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function hideError(input, errorElement) {
         input.classList.remove('invalid');
         errorElement.style.display = 'none';
-        clearTimeout(errorTimeout);
-    }
-
-    function showSuccessMessage(element, message) {
-        element.textContent = message;
-        element.classList.remove('error');
-        element.classList.add('success');
-        element.style.display = 'block';
         clearTimeout(errorTimeout);
     }
 
