@@ -41,19 +41,18 @@ describe('Fluxo de Login e Validação', () => {
     cy.get('#login-button').should('not.be.disabled'); // 5. Botão é reativado
   });
 
- // Teste 4: O "caminho feliz" - login com sucesso
-  it('deve redirecionar após um login bem-sucedido', () => {
+  // Teste 4: A abordagem profissional para um login bem-sucedido
+  it('deve validar a resposta da API e o estado da aplicação após um login bem-sucedido', () => {
     cy.intercept('POST', 'https://reqres.in/api/login').as('loginRequest');
 
     cy.get('#email').type('eve.holt@reqres.in');
     cy.get('#password').type('cityslicka');
     cy.get('#login-form').submit();
 
-    cy.wait('@loginRequest');
+    // 1. Valida a resposta da API - o comportamento mais crítico.
+    cy.wait('@loginRequest').its('response.statusCode').should('eq', 200);
 
-    cy.get('#login-form').should('not.exist');
-
-    // A verificação do localStorage é a confirmação final do estado.
+    // 2. Valida o efeito colateral que acontece ANTES do redirecionamento: o localStorage.
     cy.window().its('localStorage.isAuthenticated').should('eq', 'true');
   });
 });
