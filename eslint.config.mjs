@@ -5,46 +5,40 @@ import js from "@eslint/js";
 import cypress from "eslint-plugin-cypress";
 
 export default [
-  // 1. Configuração Global para todos os arquivos .js
+  // 1. Configuração Global (para todos os arquivos)
   {
     rules: {
       ...js.configs.recommended.rules,
-      "no-unused-vars": "warn", // Trata variáveis não usadas como aviso, não erro
-    },
-    languageOptions: {
-      globals: {
-        ...globals.browser, // Ambiente de Navegador
-      },
+      "no-unused-vars": "warn", // Trata variáveis não usadas como AVISO, não ERRO
     },
   },
 
-  // 2. Configuração Específica para arquivos de teste do Cypress
+  // 2. Configuração do Cypress
+  // Esta linha aplica TODAS as configurações recomendadas do Cypress,
+  // incluindo plugins, regras e os globais (cy, describe, etc.)
+  cypress.configs.recommended,
+
+  // 3. Configuração para arquivos do projeto (ambiente de navegador)
   {
-    files: ["cypress/e2e/**/*.cy.js"],
-    plugins: {
-      cypress, // Define o plugin como um objeto (FORMATO CORRETO)
-    },
+    files: ["**/*.js"],
     languageOptions: {
       globals: {
-        ...cypress.configs.recommended.globals, // Importa os globais do Cypress (cy, describe, etc)
+        ...globals.browser,
       },
-    },
-    rules: {
-      ...cypress.configs.recommended.rules, // Importa as regras recomendadas do Cypress
     },
   },
 
-  // 3. Configuração Específica para o arquivo de config do Node.js
+  // 4. Configuração para o arquivo de config do Cypress (ambiente Node.js)
   {
     files: ["cypress.config.js"],
     languageOptions: {
       globals: {
-        ...globals.node, // Ambiente Node.js para este arquivo
+        ...globals.node,
       },
-    }
+    },
   },
 
-  // 4. Ignora pastas que não devem ser analisadas
+  // 5. Ignora as pastas que não devem ser analisadas
   {
     ignores: ["node_modules/", ".github/"],
   },
