@@ -11,15 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const API_URL = 'https://reqres.in/api/login';
     let errorTimeout;
 
+    // Lógica de submit refatorada para ser mais robusta e testável
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
         // 1. Validação inicial
         if (!validateForm()) {
-            return; // Para a execução se a validação falhar
+            return; // Para a execução se a validação do formulário falhar
         }
 
-        // 2. Inicia o estado de carregamento
+        // 2. Inicia o estado de carregamento da interface
         loginButton.disabled = true;
         loadingSpinner.style.display = 'block';
 
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const errorMessage = responseData.error || 'E-mail ou senha incorretos.';
                 showErrorMessage(loginMessage, errorMessage);
                 
-                // Reseta a UI APENAS em caso de falha
+                // Reseta a UI APENAS em caso de falha para o usuário tentar novamente
                 loginButton.disabled = false;
                 loadingSpinner.style.display = 'none';
             }
@@ -59,17 +60,16 @@ document.addEventListener('DOMContentLoaded', function() {
             showErrorMessage(loginMessage, 'Erro ao conectar com o servidor.');
             console.error('Erro na requisição:', error);
 
-            // Reseta a UI APENAS em caso de falha
+            // Reseta a UI APENAS em caso de falha para o usuário tentar novamente
             loginButton.disabled = false;
             loadingSpinner.style.display = 'none';
         }
     });
 
-    // Funções de validação
+    // Funções de validação (sem alterações)
     function validateForm() {
         let isValid = true;
 
-        // Validação do e-mail
         if (!emailInput.value.trim()) {
             showError(emailInput, emailError, 'O e-mail é obrigatório.');
             isValid = false;
@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hideError(emailInput, emailError);
         }
 
-        // Validação da senha
         if (!passwordInput.value.trim()) {
             showError(passwordInput, passwordError, 'A senha é obrigatória.');
             isValid = false;
@@ -112,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
         errorElement.style.display = 'none';
         clearTimeout(errorTimeout);
     }
+    
+    // A função showSuccessMessage foi removida por não ser utilizada.
 
     function showErrorMessage(element, message) {
         element.textContent = message;
@@ -125,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
+    // Eventos de foco para limpar os erros (sem alterações)
     emailInput.addEventListener('focus', () => {
         hideError(emailInput, emailError);
         loginMessage.style.display = 'none';
