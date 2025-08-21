@@ -1,95 +1,87 @@
-# Sistema de Gestão de Supermercado Web - Front-end
+# Sistema de Gestão de Supermercado Web
 
-Este projeto é a parte Front-end de um sistema web de gestão de estoque para supermercados, desenvolvido como parte de um projeto integrado para disciplinas de Desenvolvimento Web e Projeto Integrado III.
+Este projeto é um sistema web de gestão de estoque para supermercados, composto por um **Front-end** em HTML/CSS/JS e uma **API RESTful** em Node.js com Express.
 
-## 💻 Estrutura do Projeto
+## 🚀 Como Executar o Projeto Completo Localmente
 
-O projeto está organizado nas seguintes pastas, cada uma representando uma funcionalidade ou tela do sistema:
+Para testar a aplicação completa (Front-end e Back-end), siga os passos abaixo.
 
--   **`cadastro/`**: Tela de Cadastro de usuários.
-    -   `index.html`: Estrutura HTML da tela de cadastro.
-    -   `scripts/cadastro.js`: Lógica JavaScript para validação e interação da tela de cadastro.
-    -   `styles/cadastro.css`: Estilos CSS para a tela de cadastro.
--   **`cadastro_novo_produto/`**: Tela para cadastrar novos produtos no sistema.
-    -   `src/novo-produto.html`: Estrutura HTML do formulário de cadastro de produto.
-    -   `scripts/novo-produto-scripts.js`: Lógica JavaScript para validação do formulário de novo produto.
-    -   `styles/novo-produto-styles.css`: Estilos CSS para a tela de novo produto.
--   **`homepage/`**: Tela inicial após o login (Dashboard principal).
-    -   `src/homepage.html`: Estrutura HTML da homepage.
-    -   `scripts/scripts.js`: Lógica JavaScript para interatividade da homepage.
-    -   `styles/styles.css`: Estilos CSS para a homepage.
--   **`login/`**: Tela de Login de usuários.
-    -   `index.html`: Estrutura HTML da tela de login.
-    -   `scripts/login.js`: Lógica JavaScript para validação e interação da tela de login.
-    -   `styles/login.css`: Estilos CSS para a tela de login.
--   **`sobre/`**: Página "Sobre" o sistema.
-    -   `index.html`: Estrutura HTML da página "Sobre".
-    -   `scripts/sobre.js`: Lógica JavaScript para a página "Sobre" (navbar).
-    -   `styles/sobre.css`: Estilos CSS para a página "Sobre".
--   **`tela_inicial/`**: Tela inicial após o login (similar à homepage, pode ser considerada o dashboard principal).
-    -   `tela-inicial.html`: Estrutura HTML da tela inicial.
-    -   `scripts/tela-inicial.js`: Lógica JavaScript para a tela inicial.
-    -   `styles/styles.css`: Estilos CSS para a tela inicial.
-    -   `imagens/`: Imagens específicas da tela inicial.
--   **`tela_produtos/`**: Tela de Produtos, com opções para gerenciar produtos.
-    -   `src/produtos.html`: Estrutura HTML da tela de produtos.
-    -   `scripts/scripts-produtos.js`: Lógica JavaScript para a tela de produtos.
-    -   `styles/styles-produtos.css`: Estilos CSS para a tela de produtos.
--   **`index.html`**: Arquivo raiz que redireciona para a tela de login.
+### 1. Pré-requisitos
 
-## 🚀 Como Executar o Projeto Localmente
+-   [Node.js](https://nodejs.org/) (versão 14 ou superior)
+-   Um editor de código como [VS Code](https://code.visualstudio.com/)
 
-Siga estes passos para executar o projeto no seu ambiente local:
+### 2. Configurando o Back-end (API)
 
-1.  **Clone o Repositório:**
+Primeiro, vamos iniciar o servidor que gerencia os dados dos produtos.
+
+1.  **Clone o repositório da API:**
     ```bash
-    git clone https://github.com/CaririTeam/PI3-Front-End_Web_Sistema_de_Estoque
+    git clone [URL_DO_SEU_REPOSITORIO_DA_API]
+    cd api-supermercado
     ```
 
-2.  **Navegue até o Diretório do Projeto:**
+2.  **Instale as dependências:**
     ```bash
+    npm install
+    ```
+
+3.  **Inicie o servidor da API:**
+    ```bash
+    node server.js
+    ```
+    > O terminal deve exibir a mensagem: `🚀 Servidor da API rodando em http://localhost:3000`. Deixe este terminal aberto.
+
+### 3. Configurando o Front-end
+
+Agora, em um **novo terminal**, vamos executar a interface do usuário.
+
+1.  **Clone o repositório do Front-end:**
+    ```bash
+    git clone https://github.com/CaririTeam/PI3-Front-End_Web_Sistema_de_Estoque
     cd PI3-Front-End_Web_Sistema_de_Estoque
     ```
 
-3.  **Abra com Live Server (VS Code) - Recomendado:**
-    *   Se você usa o VS Code, instale a extensão "Live Server".
-    *   Clique com o botão direito no arquivo `index.html` na raiz do projeto e selecione "Open with Live Server".
-    *   O projeto será aberto no seu navegador padrão, geralmente em `http://localhost:5500/`.
+2.  **Abra com Live Server (VS Code):**
+    *   Instale a extensão "Live Server".
+    *   Clique com o botão direito no arquivo `index.html` e selecione "Open with Live Server".
 
-4.  **Usando `http-server` (Alternativa - Node.js necessário):**
-    *   Certifique-se de ter o Node.js e npm instalados.
-    *   Abra o terminal na raiz do projeto e execute:
-        ```bash
-        npx http-server
-        ```
-    *   Acesse o projeto no navegador, geralmente em `http://localhost:8080`.
+## 📚 Documentação da API
 
-## 🔑 Login e Cadastro (API de Teste)
+A documentação detalhada das rotas, com exemplos de requisição e resposta para cada endpoint, está disponível aqui:
 
-Este projeto utiliza a API de teste [Reqres](https://reqres.in/) para simular as funcionalidades de login e cadastro.
+➡️ **[Acesse a Documentação Completa da API](./DOCUMENTACAO_API.md)** ⬅️
+*(Este link funcionará se o arquivo `DOCUMENTACAO_API.md` estiver no mesmo repositório)*
 
-*   **Cadastro:**
-    *   Para um cadastro bem-sucedido, utilize o e-mail `eve.holt@reqres.in` (ou outros e-mails de teste fornecidos pela Reqres). Outros e-mails podem resultar em erros da API de teste.
-    *   Após o cadastro, você será automaticamente redirecionado para a tela de login.
-*   **Login:**
-    *   Utilize o e-mail e senha que você cadastrou para realizar o login.
-    *   Após o login bem-sucedido, você será redirecionado para a tela inicial (`tela_inicial/tela-inicial.html` ou `homepage/src/homepage.html`).
+## 🧪 Como Testar a API
 
-**Observação sobre Autenticação:** A autenticação é simulada utilizando `localStorage`. O projeto define um item `isAuthenticated` como `true` após um login ou cadastro bem-sucedido.
+Você pode usar ferramentas como [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/) ou o comando `curl` para testar os endpoints da API diretamente.
 
-## ✅ Validação de Formulários
+**Exemplo: Requisição para listar todos os produtos usando cURL**```bash
+curl -X GET http://localhost:3000/produtos
+```
+**Resposta esperada:**
+```json
+[{"id":1,"nome":"Arroz Parboilizado","preco":6.50,"quantidade":100,"categoria":"Grãos"}, ...]
+```
 
-O projeto implementa validações de formulário no lado do cliente para garantir a integridade dos dados e melhorar a experiência do usuário. As validações incluem:
+**Exemplo: Requisição para adicionar um novo produto usando cURL**
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"nome":"Biscoito Recheado","preco":3.50,"quantidade":300,"categoria":"Mercearia"}' http://localhost:3000/produtos
+```
+**Resposta esperada:**
+```json
+{"id":4,"nome":"Biscoito Recheado","preco":3.50,"quantidade":300,"categoria":"Mercearia"}
+```
 
-*   **Campos obrigatórios:** Verificação se campos essenciais foram preenchidos.
-*   **Formato de e-mail:** Validação do formato correto de e-mails.
-*   **Comprimento de senha:** Verificação de requisitos mínimos para senhas (ex: mínimo de 8 caracteres).
-*   **Confirmação de senha:** Garantia de que a senha e a confirmação coincidem.
-*   **Validação de números e inteiros:**  Em campos numéricos, como preços e estoques, assegurando que são números válidos e, em alguns casos, não negativos ou inteiros.
-*   **Validação de data:** No formulário de "Novo Produto", a data de validade é validada para garantir que seja uma data futura.
+## ✨ [Componente Extensionista] Possíveis usos da nossa API
 
-As validações são implementadas em JavaScript nos arquivos de script de cada tela (ex: `cadastro/scripts/cadastro.js`, `login/scripts/login.js`, `cadastro_novo_produto/scripts/novo-produto-scripts.js`).  Estilos CSS (`.invalid` e `.error-message` em arquivos CSS correspondentes) são utilizados para destacar campos inválidos e exibir mensagens de erro de forma visualmente clara.
+A nossa API de gestão de estoque foi projetada para ser simples e robusta, abrindo um leque de possibilidades para otimizar operações em negócios do mundo real.
 
-## 📄 Licença
+**Para um pequeno supermercado ou mercearia de bairro:**
 
-Este projeto é licenciado sob a [Licença MIT](LICENSE) - veja o arquivo `LICENSE` para detalhes. (Arquivo `LICENSE` geralmente está na raiz do repositório, se aplicável).
+*   **Controle de Estoque em Tempo Real:** O dono do mercado poderia usar um simples aplicativo (conectado à nossa API) em um tablet ou celular para dar entrada em novas mercadorias assim que chegam do fornecedor (usando a rota `POST /produtos`) e dar baixa em itens vendidos ou perdidos (usando a rota `PUT /produtos` para atualizar a quantidade). Isso reduziria drasticamente os erros de contagem manual.
+*   **Integração com o Ponto de Venda (PDV):** O sistema do caixa poderia ser integrado à API. A cada venda registrada, ele faria uma chamada `PUT` para diminuir a quantidade do produto no estoque. Isso garante que o estoque digital esteja sempre sincronizado com o estoque físico.
+*   **Alertas de Reposição:** Um sistema automatizado poderia consultar a rota `GET /produtos` periodicamente. Se a `quantidade` de um item cair abaixo de um nível crítico, o sistema poderia enviar um e-mail automático para o gerente, avisando que é hora de fazer um novo pedido daquele produto, evitando prateleiras vazias e perda de vendas.
+
+Ao fornecer uma interface de programação clara e funcional, nossa API serve como a "espinha dorsal" para diversas ferramentas que modernizam a gestão, melhoram a eficiência e ajudam o negócio a crescer de forma organizada.
