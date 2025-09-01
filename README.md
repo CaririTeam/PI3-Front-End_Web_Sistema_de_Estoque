@@ -1,90 +1,121 @@
-# Sistema de Gestão de Supermercado Web - Front-end
+# Sistema de Gestão de Supermercado Web
 
-Este projeto é a parte Front-end de um sistema web de gestão de estoque para supermercados, desenvolvido como parte de um projeto integrado para disciplinas de Desenvolvimento Web e Projeto Integrado III.
+Este projeto é um sistema web full-stack de gestão de estoque para supermercados. Ele é composto por um **Front-end** desenvolvido com HTML, CSS e JavaScript puro, e um **Back-end** que consiste em uma API RESTful criada com Node.js e Express.
+
+O projeto foi desenvolvido como parte de um projeto integrado para as disciplinas de Desenvolvimento Web e Projeto Integrado III.
 
 ## 💻 Estrutura do Projeto
 
-O projeto está organizado nas seguintes pastas, cada uma representando uma funcionalidade ou tela do sistema:
+O repositório está organizado da seguinte forma:
 
+-   **`api-supermercado/`**: Contém todo o código-fonte do back-end (servidor e rotas da API).
 -   **`cadastro/`**: Tela de Cadastro de usuários.
 -   **`cadastro_novo_produto/`**: Tela para cadastrar novos produtos.
+-   **`cypress/`**: Testes automatizados de ponta a ponta.
 -   **`homepage/`**: Tela inicial após o login (Dashboard principal).
 -   **`login/`**: Tela de Login de usuários.
 -   **`sobre/`**: Página "Sobre" o sistema.
--   **`tela_inicial/`**: Outra versão da tela inicial (dashboard).
--   **`tela_produtos/`**: Tela de gerenciamento de produtos.
+-   **`tela_produtos/`**: Tela de gerenciamento de produtos (que consome nossa API).
 -   **`index.html`**: Arquivo raiz que redireciona para a tela de login.
 
-## 🚀 Como Executar o Projeto Localmente
+## 🚀 Como Executar o Projeto Completo Localmente
 
-Siga estes passos para executar o projeto no seu ambiente local:
+Para testar a aplicação completa, você precisa rodar o back-end (servidor) e o front-end (interface do usuário) simultaneamente.
 
-1.  **Clone o Repositório:**
+### Pré-requisitos
+
+-   [Node.js](https://nodejs.org/) (versão 16 ou superior)
+-   Um editor de código como [VS Code](https://code.visualstudio.com/) com a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+
+### 1. Configurando o Back-end (API)
+
+Primeiro, vamos iniciar o servidor que gerencia os dados dos produtos.
+
+1.  **Abra um terminal** na raiz do projeto.
+2.  Navegue até o diretório da API:
     ```bash
-    git clone https://github.com/CaririTeam/PI3-Front-End_Web_Sistema_de_Estoque
+    cd api-supermercado
     ```
-
-2.  **Navegue até o Diretório do Projeto:**
-    ```bash
-    cd PI3-Front-End_Web_Sistema_de_Estoque
-    ```
-
-3.  **Instale as Dependências (Necessário para testes e automação):**
+3.  Instale as dependências do back-end:
     ```bash
     npm install
     ```
+4.  Inicie o servidor da API:
+    ```bash
+    node server.js
+    ```
+    ✅ O terminal deve exibir a mensagem: `🚀 Servidor da API rodando em http://localhost:3000`. **Deixe este terminal aberto.**
 
-4.  **Abra com Live Server (VS Code) - Recomendado:**
-    *   Instale a extensão "Live Server" no VS Code.
-    *   Clique com o botão direito no arquivo `index.html` e selecione "Open with Live Server".
+### 2. Configurando o Front-end
 
-5.  **Usando `http-server` (Alternativa):**
-    *   No terminal, na raiz do projeto, execute:
-        ```bash
-        npm run start
-        ```
-    *   Acesse o projeto em `http://localhost:8080`.
+Agora, em um **novo terminal**, vamos executar a interface do usuário.
 
-## 🔑 Login e Cadastro (API de Teste)
+1.  Navegue até a raiz do projeto.
+2.  Instale as dependências do front-end (usadas para testes e automação):
+    ```bash
+    npm install
+    ```
+3.  Inicie o front-end com o Live Server:
+    *   No VS Code, clique com o botão direito no arquivo `index.html` na raiz do projeto.
+    *   Selecione "Open with Live Server".
+    *   Seu navegador abrirá automaticamente a aplicação.
 
-Este projeto utiliza a API de teste [Reqres](https://reqres.in/) para simular as funcionalidades de login e cadastro.
+## 📚 Documentação da API
 
-*   **Login:** Para um login bem-sucedido nos testes, use o e-mail `eve.holt@reqres.in`. A senha pode ser qualquer uma, pois a API de teste não a valida.
-*   **Autenticação:** O estado de autenticação é simulado via `localStorage`.
+A documentação detalhada das rotas, com exemplos de requisição e resposta para cada endpoint, está disponível no diretório da API.
 
-## ✅ Validação de Formulários
+➡️ **[Acesse a Documentação Completa da API](./api-supermercado/DOCUMENTACAO_API.md)** ⬅️
 
-O projeto implementa validações de formulário no lado do cliente para garantir a integridade dos dados e melhorar a experiência do usuário, incluindo verificação de campos obrigatórios, formato de e-mail e comprimento de senha.
+## 🧪 Como Testar a API Diretamente
+
+Você pode usar ferramentas como [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/) ou o comando `curl` para testar os endpoints da API diretamente.
+
+**Exemplo: Requisição para listar todos os produtos (cURL)**
+
+```bash
+curl -X GET http://localhost:3000/produtos
+```
+
+**Exemplo: Requisição para adicionar um novo produto (cURL)**
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"nome":"Biscoito Recheado","preco":3.50,"quantidade":300,"categoria":"Mercearia"}' http://localhost:3000/produtos
+```
+
+## 🔑 Login e Cadastro
+
+**Nota:** A funcionalidade de **login e cadastro de usuários** ainda utiliza a API de teste [Reqres](https://reqres.in/) para simulação, enquanto a **gestão de produtos** já está integrada com a nossa API local (`localhost:3000`).
+
+-   **Login (Teste):** Para um login bem-sucedido, use o e-mail `eve.holt@reqres.in`. A senha pode ser qualquer uma.
+
+## ✨ [Componente Extensionista] Possíveis usos da nossa API
+
+A nossa API de gestão de estoque foi projetada para ser simples e robusta, abrindo um leque de possibilidades para otimizar operações em negócios do mundo real.
+
+**Para um pequeno supermercado ou mercearia de bairro:**
+
+-   **Controle de Estoque em Tempo Real:** O dono do mercado poderia usar um simples aplicativo (conectado à nossa API) em um tablet ou celular para dar entrada em novas mercadorias assim que chegam do fornecedor (usando a rota `POST /produtos`) e dar baixa em itens vendidos ou perdidos (usando a rota `PUT /produtos` para atualizar a quantidade). Isso reduziria drasticamente os erros de contagem manual.
+-   **Integração com o Ponto de Venda (PDV):** O sistema do caixa poderia ser integrado à API. A cada venda registrada, ele faria uma chamada `PUT` para diminuir a quantidade do produto no estoque. Isso garante que o estoque digital esteja sempre sincronizado com o estoque físico.
+-   **Alertas de Reposição:** Um sistema automatizado poderia consultar a rota `GET /produtos` periodicamente. Se a `quantidade` de um item cair abaixo de um nível crítico, o sistema poderia enviar um e-mail automático para o gerente, avisando que é hora de fazer um novo pedido daquele produto, evitando prateleiras vazias e perda de vendas.
+
+Ao fornecer uma interface de programação clara e funcional, nossa API serve como a "espinha dorsal" para diversas ferramentas que modernizam a gestão, melhoram a eficiência e ajudam o negócio a crescer de forma organizada.
 
 ## 🤖 Integração Contínua e Testes Automatizados
 
 [![CI Pipeline](https://github.com/CaririTeam/PI3-Front-End_Web_Sistema_de_Estoque/actions/workflows/main.yml/badge.svg)](https://github.com/CaririTeam/PI3-Front-End_Web_Sistema_de_Estoque/actions/workflows/main.yml)
 
-Este projeto utiliza um pipeline de **Integração Contínua (CI)** configurado com GitHub Actions. O objetivo é automatizar a verificação do nosso código, garantindo que novas alterações não introduzam erros e mantenham um alto padrão de qualidade. O pipeline é acionado a cada `push` ou `pull request` para a branch `main`.
+Este projeto utiliza um pipeline de **Integração Contínua (CI)** configurado com GitHub Actions para automatizar a verificação do nosso código, garantindo que novas alterações não introduzam erros e mantenham um alto padrão de qualidade.
 
-Nosso processo automatizado executa duas tarefas essenciais em sequência:
+Nosso processo automatizado executa duas tarefas essenciais:
+1.  **Verificação de Qualidade (Lint):** O ESLint analisa estaticamente o código JavaScript em busca de erros, inconsistências e potenciais bugs.
+2.  **Testes de Ponta a Ponta (E2E):** O Cypress simula um usuário real interagindo com a aplicação, testando os fluxos críticos como o de login.
 
-1.  **Verificação de Qualidade (Lint):** Primeiro, o pipeline usa o **ESLint** para analisar estaticamente todo o código JavaScript. Ele verifica erros de sintaxe, inconsistências de estilo e potenciais bugs, garantindo que o código seja limpo e padronizado.
-2.  **Testes de Ponta a Ponta (E2E):** Se o código passar na verificação de qualidade, o **Cypress** entra em ação. Ele abre um navegador e simula um usuário real interagindo com nossa aplicação, testando os fluxos da tela de login para garantir que tudo funcione como esperado.
+### O que é Integração Contínua?
 
-### O que é Integração Contínua? Por que isso é importante para você?
-
-Imagine que nosso projeto é um carro sendo montado em uma fábrica. Cada desenvolvedor é um mecânico que adiciona uma peça nova (um pedaço de código).
-
-**Integração Contínua (CI)** é como ter uma linha de montagem automatizada e inteligente. Assim que um mecânico instala uma peça nova (ou seja, envia o código para o repositório), robôs entram em ação para:
-
-1.  **Inspecionar a peça:** Eles verificam se a peça tem o formato e a qualidade corretos. Essa é a nossa **Verificação de Qualidade (Lint)**.
-2.  **Testar o carro inteiro:** Eles ligam o carro e testam se ele ainda acelera, freia e vira corretamente com a nova peça. Esses são os nossos **Testes Automatizados (E2E)**.
-
-Se qualquer um desses testes falhar, a linha de montagem para imediatamente e avisa o mecânico. Isso evita que um carro com defeito chegue ao consumidor final.
-
-**Por que isso é essencial para você, estudante de programação?**
-
-*   **Encontrar erros mais rápido:** Ajuda a identificar problemas no exato momento em que são criados, acabando com o famoso "mas no meu computador funciona!".
-*   **Colaborar em equipe de forma segura:** Garante que o código de um colega não "quebre" o seu, tornando o trabalho em grupo muito mais tranquilo e produtivo.
-*   **Construir um portfólio profissional:** Dominar ferramentas de CI/CD (Integração e Entrega Contínua) é uma habilidade extremamente valorizada no mercado. Mostrar que você já as utiliza em seus projetos acadêmicos é um grande diferencial.
-*   **Criar o hábito da qualidade:** Acostuma você a sempre escrever código testável e de alta qualidade desde o início da sua carreira, uma prática que o acompanhará para sempre.
+Imagine que nosso projeto é um carro sendo montado. Cada desenvolvedor adiciona uma peça (código). **Integração Contínua (CI)** é a linha de montagem automatizada que inspeciona cada peça e testa o carro inteiro assim que a peça é instalada. Se algo der errado, o processo para e avisa o responsável imediatamente. Isso é essencial para encontrar erros mais rápido, colaborar em equipe de forma segura e construir um portfólio profissional.
 
 ## 📄 Licença
 
 Este projeto é licenciado sob a [Licença MIT](LICENSE).
+
+```
