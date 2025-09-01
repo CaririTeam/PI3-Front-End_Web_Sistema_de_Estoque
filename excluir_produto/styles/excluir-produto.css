@@ -178,13 +178,18 @@ h1{
 }
 
 
-.main-container {
+.container-form{
     display: grid;   
     justify-items: center;
     height: 60vh;    
     margin-left: 1vw;
     margin-bottom: 15vh;
     grid-template-columns: 4fr 1fr;  
+    display: none;
+}
+
+.main-container {
+    height: 60vh;        
 }
 
 form input{
@@ -209,6 +214,7 @@ form div{
                         "input-cod-fornecedor input-fornecedor input-fornecedor input-fornecedor input-fornecedor"
                         "input-estoque-min input-estoque-atual input-estoque-max input-lote input-data-validade"                        
     ;
+    
 }
 
 .botoes{
@@ -216,22 +222,23 @@ form div{
     flex-direction: row;
     justify-content: end;
     margin-top: 4vh;
-    width: 70.5vw;
-    
-}
-#btn-cancelar {
-    background-color: #c53434;
-    color: white;
-    width: 10vw;
-    height: 7vh;
-    cursor: pointer;
+    width: 70.5vw;    
 }
 
-#btn-salvar {
-    background-color: #4CAF50;
+#btn-cancelar {
+    background-color: #10403b;
     color: white;
     width: 10vw;
-    height: 7vh;
+    height: 7vh;    
+    cursor: pointer;
+    margin-right: 1vw;
+}
+
+.btn-excluir{
+    background-color: #8d0707;
+    color: white;
+    width: 10vw;
+    height: 7vh;    
     cursor: pointer;
 }
 
@@ -253,12 +260,59 @@ form div{
     border: 2px solid white;
 }
 
-.btn-inseri-img {
-    width: 10vw;
-    height: 7vh;
+
+/*Campo de localizar produto*/
+
+.container-localizar{
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    gap: 1vw;   
+    padding: 1vw;
+    border: 1px solid white;
+    background-color: #2e2f2f;
+    border-radius: 8px;
+    height: 10vh;
+    margin: 0vw 2vw 0vw 2vw;
+}
+
+.form-localizar{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    gap: 1vw;
+}
+
+.form-localizar div{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-localizar{
+    height: 5vh;
+    margin-top: 3vh;
     background-color: #10403b;
     color: white;
-    cursor: pointer;
+}
+
+.lista-produtos{
+    height: 40vh;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin: 2vw 2vw 0vw 2vw;
+    background-color: #2e2f2f;
+}
+
+.cabecalhoProdutos{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;   
+    place-items: center; 
+    border-bottom: 1px solid white;
+    padding-bottom: 1vh;
+    /*gap: 5vw;*/
+    margin: 1vw;
+}
+
+.cabecalhoProdutos div{
+    color: white;
 }
 
 /*Estilização do rodapé da página*/

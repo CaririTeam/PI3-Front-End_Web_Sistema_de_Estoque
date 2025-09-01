@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="../styles/novo-produto-styles.css">
+    <link rel="stylesheet" href="../styles/localizar-produto.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                 <div class="dropdown-menu">
                     <a href="#">Cadastrar novo produto</a>
                     <a href="#">Editar produto</a>
-                    <a href="../../localizar_produto/src/localizar-produto.html">Buscar produto</a>
+                    <a href="#">Buscar produto</a>
                     <a href="#">Excluir produto</a>
                     <a href="#">Histórico de compra</a>
                     <a href="#">Histórico de venda</a>
@@ -129,15 +129,17 @@
     </nav>
 
     <div class="container-menu">
-        <h1>Novo Produto</h1>
+        <h1>Localizar do Produto</h1>
         <span class="abrir-menu" onclick="abrirMenu()">☰</span>
     </div>
 
     <main class="main-container">
 
         
-        <form id="form-principal" class="form-grid">
-            <!--Linha 1-->                
+       <div id='containerForm' class="container-form">
+            
+            <form class="form-grid">
+                <!--Linha 1-->                
                 <div class="input-cod">
                     <label for="codigo">Código</label>
                     <input name="codigo" type="text" id="codigo">
@@ -217,22 +219,49 @@
                     <input name="dataValidade" type="date" id="data-validade">
                     <span></span>
                 </div>  
-        </form>
+            </form>
     
 
-        <div class="inserir-imagem">
-            <img class="imagem" src="../assets/imagem.png" alt="">
-            <button class="btn-inseri-img">Inserir foto</button>
-        </div>
+            <div class="inserir-imagem">
+                <img class="imagem" src="../../cadastro_novo_produto/assets/imagem.png" alt="">            
+            </div>
 
-        
+                        
+            <div class="botoes">
+                <button onclick="location.reload()" id="btn-cancelar" class="btn1">Cancelar</button>   
+                <button class="btn-editar">Editar</button>         
+            </div>
 
-                    
-        <div class="botoes">
-            <button onclick="window.location.href='../../tela_produtos/src/produtos.html'" type="submit"  id="btn-cancelar" class="btn1">Cancelar</button>
-            <button type="submit" form="form-principal" id="btn-salvar" class="btn2">Salvar</button>
-        </div>
-    
+       </div>
+
+       <div id="containerLocalizar" class="container-localizar">
+            <form id="formLocalizar" class="form-localizar">
+                <div>
+                    <label for="cod">Código</label>
+                    <input class="cod-localizar" type="number" id="cod">
+                </div>
+                <div>
+                    <label for="descricao">Descrição</label>
+                    <input id="descricaoLocalizar" class="descricao-localizar" type="text" id="descricao">
+                </div>
+            </form>
+            
+            <button type="button" form="formLocalizar" onclick="buscar()" class="btn-localizar" >Localizar</button>
+
+       </div>
+
+       <div id="produtosSalvos" class="lista-produtos">
+            <div class="cabecalhoProdutos">
+                <div>Código</div>
+                <div>Descrição do produto</div>
+                <div>Estoque Mínimo</div>
+                <div>Estoque Atual</div>
+                <div>Estoque Máximo</div>
+            </div>
+            <!--Espaço destinado a inserção por  JS-->
+       </div>       
+       
+      
     </main>
 
 
@@ -316,6 +345,6 @@
 
 </body>
 
-<script src="../scripts/novo-produto-scripts.js"></script>
+<script src="../scripts/localizar-produto.js"></script>
 
 </html>
