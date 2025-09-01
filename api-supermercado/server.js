@@ -53,17 +53,19 @@ app.post('/produtos', (req, res) => {
 // ROTA 4: Atualizar um produto existente (PUT /produtos/:id)
 app.put('/produtos/:id', (req, res) => {
     const { id } = req.params;
-    const { nome, preco, quantidade, categoria } = req.body;
     const indexDoProduto = produtos.findIndex(p => p.id === parseInt(id));
 
     if (indexDoProduto === -1) {
         return res.status(404).json({ message: 'Produto não encontrado.' });
     }
+
+    const produtoOriginal = produtos[indexDoProduto];
+
+    const produtoAtualizado = { ...produtoOriginal, ...req.body };
+
+    produtos[indexDoProduto] = produtoAtualizado;
     
-    // Atualiza o produto
-    produtos[indexDoProduto] = { ...produtos[indexDoProduto], nome, preco, quantidade, categoria };
-    
-    res.status(200).json(produtos[indexDoProduto]);
+    res.status(200).json(produtoAtualizado);
 });
 
 // ROTA 5: Deletar um produto (DELETE /produtos/:id)
