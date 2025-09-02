@@ -87,7 +87,7 @@ Rotas Principais
 ```bash
 curl -X GET http://localhost:3000/produtos
 ```
-
+```
 [
 {
 "id": 1,
@@ -104,6 +104,7 @@ curl -X GET http://localhost:3000/produtos
 "categoria": "Mercearia"
 }
 ]
+```
 
 **Exemplo: Requisição para adicionar um novo produto (cURL)**
 
