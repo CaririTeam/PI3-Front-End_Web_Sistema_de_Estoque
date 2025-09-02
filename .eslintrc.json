@@ -17,6 +17,14 @@
   "overrides": [
     {
       "files": [
+        "api-supermercado/**/*.js"
+      ],
+      "env": {
+        "node": true
+      }
+    },
+    {
+      "files": [
         "cypress/**/*.cy.js"
       ],
       "extends": [
