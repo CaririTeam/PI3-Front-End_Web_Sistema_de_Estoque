@@ -70,11 +70,40 @@ A documentação detalhada das rotas, com exemplos de requisição e resposta pa
 
 Você pode usar ferramentas como [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/) ou o comando `curl` para testar os endpoints da API diretamente.
 
+A API implementa cinco rotas funcionais do recurso produtos, que cobrem todas as operações do ciclo de vida de um item de estoque (CRUD - Create, Read, Update, Delete), utilizando métodos HTTP semânticos.
+Rotas Principais
+| Método | Rota           | Funcionalidade                                    |
+|--------|----------------|--------------------------------------------------|
+| GET    | /produtos      | Retorna lista completa de produtos cadastrados. |
+| GET    | /produtos/:id  | Retorna detalhes de um produto pelo seu ID.     |
+| POST   | /produtos      | Cadastra um novo produto com dados como nome, preço e categoria. |
+| PUT    | /produtos/:id  | Atualiza dados específicos de um produto existente. |
+| DELETE | /produtos/:id  | Remove um produto do sistema.                     |
+
+
+
 **Exemplo: Requisição para listar todos os produtos (cURL)**
 
 ```bash
 curl -X GET http://localhost:3000/produtos
 ```
+
+[
+{
+"id": 1,
+"nome": "Arroz",
+"preco": 10.50,
+"quantidade": 100,
+"categoria": "Mercearia"
+},
+{
+"id": 2,
+"nome": "Feijão",
+"preco": 7.30,
+"quantidade": 50,
+"categoria": "Mercearia"
+}
+]
 
 **Exemplo: Requisição para adicionar um novo produto (cURL)**
 
