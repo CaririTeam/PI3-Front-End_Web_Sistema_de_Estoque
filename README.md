@@ -147,5 +147,3 @@ Imagine que nosso projeto é um carro sendo montado. Cada desenvolvedor adiciona
 ## 📄 Licença
 
 Este projeto é licenciado sob a [Licença MIT](LICENSE).
-
-```
