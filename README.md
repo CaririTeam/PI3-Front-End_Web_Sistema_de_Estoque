@@ -44,7 +44,11 @@ Primeiro, vamos iniciar o servidor que gerencia os dados dos produtos.
     ```bash
     node server.js
     ```
-    ✅ O terminal deve exibir a mensagem: `🚀 Servidor da API rodando em http://localhost:3000`. **Deixe este terminal aberto.**
+    ✅ O terminal deve exibir as mensagens de confirmação, incluindo a URL da documentação. **Deixe este terminal aberto.**
+    ```
+    🚀 Servidor da API rodando em http://localhost:3000
+    📄 Documentação da API disponível em http://localhost:3000/api-docs
+    ```
 
 ### 2. Configurando o Front-end
 
@@ -60,23 +64,27 @@ Agora, em um **novo terminal**, vamos executar a interface do usuário.
     *   Selecione "Open with Live Server".
     *   Seu navegador abrirá automaticamente a aplicação.
 
-## 📚 Documentação da API
+## 📚 Documentação da API Interativa (Swagger)
 
-A documentação detalhada das rotas, com exemplos de requisição e resposta para cada endpoint, está disponível no diretório da API.
+Este projeto utiliza **Swagger UI** para gerar uma documentação da API que é dinâmica, interativa e sempre atualizada com o código-fonte.
 
-➡️ **[Acesse a Documentação Completa da API](./api-supermercado/DOCUMENTACAO_API.md)** ⬅️
+Para acessar a documentação, primeiro inicie o servidor do back-end (conforme o passo "Configurando o Back-end") e então acesse o seguinte link no seu navegador:
 
-## 🧪 Como Testar a API Diretamente
+➡️ **[Acesse a Documentação Interativa da API](http://localhost:3000/api-docs)** ⬅️
 
-Você pode usar ferramentas como [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/) ou o comando `curl` para testar os endpoints da API diretamente.
+Na interface do Swagger, você poderá não apenas ler sobre cada endpoint, mas também **executar requisições de teste** diretamente do seu navegador.
 
-**Exemplo: Requisição para listar todos os produtos (cURL)**
+## 🧪 Como Testar a API Diretamente (Alternativa)
+
+Para testes rápidos via linha de comando ou com outras ferramentas, você pode usar os seguintes exemplos com `cURL`.
+
+**Exemplo: Requisição para listar todos os produtos**
 
 ```bash
 curl -X GET http://localhost:3000/produtos
 ```
 
-**Exemplo: Requisição para adicionar um novo produto (cURL)**
+**Exemplo: Requisição para adicionar um novo produto**
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"nome":"Biscoito Recheado","preco":3.50,"quantidade":300,"categoria":"Mercearia"}' http://localhost:3000/produtos
@@ -117,5 +125,3 @@ Imagine que nosso projeto é um carro sendo montado. Cada desenvolvedor adiciona
 ## 📄 Licença
 
 Este projeto é licenciado sob a [Licença MIT](LICENSE).
-
-```
