@@ -72,6 +72,16 @@ Para acessar a documentação, primeiro inicie o servidor do back-end (conforme 
 
 ➡️ **[Acesse a Documentação Interativa da API](http://localhost:3000/api-docs)** ⬅️
 
+A API implementa cinco rotas funcionais do recurso produtos, que cobrem todas as operações do ciclo de vida de um item de estoque (CRUD - Create, Read, Update, Delete), utilizando métodos HTTP semânticos.
+Rotas Principais
+| Método | Rota           | Funcionalidade                                    |
+|--------|----------------|--------------------------------------------------|
+| GET    | /produtos      | Retorna lista completa de produtos cadastrados. |
+| GET    | /produtos/:id  | Retorna detalhes de um produto pelo seu ID.     |
+| POST   | /produtos      | Cadastra um novo produto com dados como nome, preço e categoria. |
+| PUT    | /produtos/:id  | Atualiza dados específicos de um produto existente. |
+| DELETE | /produtos/:id  | Remove um produto do sistema.   
+
 Na interface do Swagger, você poderá não apenas ler sobre cada endpoint, mas também **executar requisições de teste** diretamente do seu navegador.
 
 ## 🧪 Como Testar a API Diretamente (Alternativa)
