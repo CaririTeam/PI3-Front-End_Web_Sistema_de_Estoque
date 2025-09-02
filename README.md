@@ -106,7 +106,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"nome":"Biscoito Recheado"
 
 -   **Login (Teste):** Para um login bem-sucedido, use o e-mail `eve.holt@reqres.in`. A senha pode ser qualquer uma.
 
-## ✨ [Componente Extensionista] Possíveis usos da nossa API
+## ✨ Possíveis usos da nossa API
 
 A nossa API de gestão de estoque foi projetada para ser simples e robusta, abrindo um leque de possibilidades para otimizar operações em negócios do mundo real.
 
