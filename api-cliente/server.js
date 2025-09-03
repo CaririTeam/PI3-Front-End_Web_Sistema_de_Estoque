@@ -6,22 +6,25 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Lista em memória (dados de exemplo)
+   
+
+
 let clientes = [
   { 
     id: 1, 
     nome: "João", 
-    cpf: "086.596.745-66",
-    email: "joao@email.com",      
-    telefone: "88988500123",
+    cpf: "086.596.745-66", 
+    email: "joao@email.com", 
+    telefone: "88988500123", 
     rua: "Rua 15 de maio",
     numero: "35",
     bairro: "Centro",
     cidade: "Juazeiro do Norte",
     pontoRef: "Ao lado do abc comécio"
-}];
+  }
+];
 
-let idSeq = 3;
+let idSeq = 2;
 
 // Buscar todos
 app.get("/clientes", (req, res) => {
@@ -52,7 +55,7 @@ app.put("/clientes/:id", (req, res) => {
 
 // Deletar
 app.delete("/clientes/:id", (req, res) => {
-  clientes = contatos.filter(d => d.id !== parseInt(req.params.id));
+  contatos = clientes.filter(d => d.id !== parseInt(req.params.id));
   res.json({ msg: "Removido com sucesso" });
 });
 

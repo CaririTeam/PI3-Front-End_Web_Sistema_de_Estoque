@@ -2,12 +2,12 @@
   "name": "pi3-front-end_web_sistema_de_estoque",
   "version": "1.0.0",
   "description": "Front-end de um sistema web de gestão de estoque para supermercados.",
-  "main": "server.js",
+  "main": "./api-cliente/server.js",
   "scripts": {
     "lint": "eslint . --ext .js",
     "test": "cypress run",
     "start": "http-server -p 8080",
-    "dev": "npx nodemon server.js"
+    "dev": "npx nodemon ./api-cliente/server.js"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
