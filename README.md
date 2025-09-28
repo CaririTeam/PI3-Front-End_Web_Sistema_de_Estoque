@@ -150,6 +150,11 @@ npm install --save-dev jest supertest
 ```
 📌 A flag “--save-dev” instala o pacote apenas para o ambiente de desenvolvimento. No ambiente de produção esse pacote não será necessário.
 
+### Repositório e script de teste
+
+Foi criao um repositório de nome __test__
+Dentro desse repositório foi criado um script de testes com o nome api_cliente.test.js
+
 ### Executando os testes
 
 Antes de rodar os testes é importante configurar o package.json em sua seção scripts:
@@ -160,7 +165,9 @@ Antes de rodar os testes é importante configurar o package.json em sua seção 
  },
 ```
 📌 Isso serve para executar o script de teste com a palavra chave “jtest”. Muito útil quando a linha de comando é extensa.
+
 📌 A flag “--coverage” do Jest mostra a cobertura dos testes sobre o módulo testado. Além disso, é gerado um “index.html” com o código testado, destacando as linhas não cobertas pelo teste. 
+
 📌 A flag “--wach” do Jest permite a execução dos testes sempre que salvar alterações no projeto. É necessário que o projeto esteja em um repositório git.
 
 
@@ -177,11 +184,13 @@ Roda apenas os testes que falharam na última execução.
 
 👉 Útil quando você quer corrigir erros sem rodar tudo de novo.
 
+
 o → only run tests related to changed files
 
 Executa somente os testes relacionados aos arquivos que você acabou de modificar.
 
 👉 Economiza tempo em projetos grandes.
+
 
 p → filter by a filename regex pattern
 
@@ -189,15 +198,18 @@ Permite digitar parte do nome do arquivo de teste (regex) para rodar só os test
 
 👉 Exemplo: digitar cliente → roda só arquivos que tenham cliente.test.js.
 
+
 t → filter by a test name regex pattern
 
 Filtra por nome do teste definido no test() ou it().
 
 👉 Exemplo: se você digitar DELETE, roda só os testes que têm "DELETE" no título.
 
+
 q → quit watch mode
 
 Sai do modo --watch e volta para o terminal normal.
+
 
 Enter → trigger a test run
 
