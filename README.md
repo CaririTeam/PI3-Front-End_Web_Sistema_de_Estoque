@@ -152,8 +152,9 @@ npm install --save-dev jest supertest
 
 ### Repositório e script de teste
 
-Foi criao um repositório de nome __test__
-Dentro desse repositório foi criado um script de testes com o nome api_cliente.test.js
+Foi criao um repositório de nome "`__test__"
+
+Dentro desse repositório foi criado um script de testes com o nome "api_cliente.test.js"
 
 ### Executando os testes
 
@@ -176,44 +177,32 @@ Para rodar todos o script de test:
 ```bash
 npm run jtest
 ```
-Abrirá uma lista de opções de teste para serem escolhidas:
 
-f → run only failed tests
+## ⌨️ Atalhos do Jest no modo `--watch`
 
-Roda apenas os testes que falharam na última execução.
+Quando o Jest é executado com a flag `--watch`, você pode usar atalhos no terminal para controlar a execução dos testes:
 
-👉 Útil quando você quer corrigir erros sem rodar tudo de novo.
+* **`f` → run only failed tests**
+  Roda apenas os testes que falharam na última execução.
+  👉 Útil para corrigir erros sem rodar tudo de novo.
 
+* **`o` → only run tests related to changed files**
+  Executa somente os testes relacionados aos arquivos que você acabou de modificar.
+  👉 Economiza tempo em projetos grandes.
 
-o → only run tests related to changed files
+* **`p` → filter by a filename regex pattern**
+  Permite digitar parte do nome do arquivo de teste (regex) para rodar só os testes que estão nele.
+  👉 Exemplo: digitar `cliente` → roda só arquivos que tenham `cliente.test.js`.
 
-Executa somente os testes relacionados aos arquivos que você acabou de modificar.
+* **`t` → filter by a test name regex pattern**
+  Filtra por nome do teste definido no `test()` ou `it()`.
+  👉 Exemplo: se você digitar `DELETE`, roda só os testes que têm "DELETE" no título.
 
-👉 Economiza tempo em projetos grandes.
+* **`q` → quit watch mode**
+  Sai do modo `--watch` e volta para o terminal normal.
 
-
-p → filter by a filename regex pattern
-
-Permite digitar parte do nome do arquivo de teste (regex) para rodar só os testes que estão nele.
-
-👉 Exemplo: digitar cliente → roda só arquivos que tenham cliente.test.js.
-
-
-t → filter by a test name regex pattern
-
-Filtra por nome do teste definido no test() ou it().
-
-👉 Exemplo: se você digitar DELETE, roda só os testes que têm "DELETE" no título.
-
-
-q → quit watch mode
-
-Sai do modo --watch e volta para o terminal normal.
-
-
-Enter → trigger a test run
-
-Reexecuta todos os testes sem filtro, mesmo sem mudar nenhum arquivo.
+* **`Enter` → trigger a test run**
+  Reexecuta todos os testes sem filtro, mesmo sem mudar nenhum arquivo.
 
 📌 A opção recomendada é a última, portanto pressione enter para selecionar a execução de todos os testes após salvar alguma alteração no projeto.
 
