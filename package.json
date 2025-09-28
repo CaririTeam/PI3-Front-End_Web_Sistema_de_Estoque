@@ -7,7 +7,8 @@
     "lint": "eslint . --ext .js",
     "test": "cypress run",
     "start": "http-server -p 8080",
-    "dev": "npx nodemon ./api-cliente/server.js"
+    "dev": "npx nodemon ./api-cliente/server.js",
+    "jtest": "jest --coverage --watch"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
@@ -16,7 +17,9 @@
     "eslint": "^8.57.1",
     "eslint-plugin-cypress": "^3.0.0",
     "globals": "^16.3.0",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "jest": "^30.1.3",
+    "supertest": "^7.1.4"
   },
   "dependencies": {
     "acorn": "^8.15.0",
