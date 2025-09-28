@@ -20,11 +20,24 @@ let clientes = [
     numero: "35",
     bairro: "Centro",
     cidade: "Juazeiro do Norte",
-    pontoRef: "Ao lado do abc comécio"
+    pontoRef: "Ao lado do abc comércio"
+  },
+
+  { 
+    id: 2, 
+    nome: "Romulo", 
+    cpf: "046.196.745-33", 
+    email: "romulo@email.com", 
+    telefone: "88995420023", 
+    rua: "Rua da Independência",
+    numero: "1022",
+    bairro: "Timbaubas",
+    cidade: "Juazeiro do Norte",
+    pontoRef: "por tras do torre"
   }
 ];
 
-let idSeq = 2;
+let idSeq = 3;
 
 // Buscar todos
 app.get("/clientes", (req, res) => {
@@ -34,7 +47,7 @@ app.get("/clientes", (req, res) => {
 // Buscar por id
 app.get("/clientes/:id", (req, res) => {
   const dado = clientes.find(d => d.id === parseInt(req.params.id));
-  if (!dado) return res.status(404).json({ msg: "Não encontrado" });
+  if (!dado) return res.status(404).json({ msg: "Não encontrado" });  
   res.json(dado);
 });
 
@@ -55,10 +68,16 @@ app.put("/clientes/:id", (req, res) => {
 
 // Deletar
 app.delete("/clientes/:id", (req, res) => {
-  contatos = clientes.filter(d => d.id !== parseInt(req.params.id));
+  const index = clientes.findIndex(d => d.id === parseInt(req.params.id));
+  if (index === -1) return res.status(404).json({ msg: "Não encontrado" });
+
+  clientes.splice(index, 1); // remove o cliente do array
   res.json({ msg: "Removido com sucesso" });
 });
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
+module.exports = app;
