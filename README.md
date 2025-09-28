@@ -172,7 +172,7 @@ Antes de rodar os testes é importante configurar o package.json em sua seção 
 📌 A flag “--wach” do Jest permite a execução dos testes sempre que salvar alterações no projeto. É necessário que o projeto esteja em um repositório git.
 
 
-Para rodar todos o script de test:
+Para rodar o script de test, execute a seguinte linha de comando no terminal:
 
 ```bash
 npm run jtest
