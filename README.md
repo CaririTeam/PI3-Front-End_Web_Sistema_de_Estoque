@@ -132,6 +132,88 @@ Nosso processo automatizado executa duas tarefas essenciais:
 
 Imagine que nosso projeto é um carro sendo montado. Cada desenvolvedor adiciona uma peça (código). **Integração Contínua (CI)** é a linha de montagem automatizada que inspeciona cada peça e testa o carro inteiro assim que a peça é instalada. Se algo der errado, o processo para e avisa o responsável imediatamente. Isso é essencial para encontrar erros mais rápido, colaborar em equipe de forma segura e construir um portfólio profissional.
 
+## 🧪 Testes Automatizados
+
+Este projeto utiliza **Jest** e **Supertest** para validar os endpoints da API de clientes.
+
+## 🛠 Tecnologias de Teste
+
+* **Jest** → framework de testes em JavaScript que executa os testes e gera relatórios no terminal. Ele oferece ferramentas para criar asserções (`expect`) e verificar a cobertura de código.
+* **Supertest** → biblioteca que facilita o teste de APIs HTTP. Com ela é possível simular requisições (`GET`, `POST`, `PUT`, `DELETE`) diretamente na aplicação Express sem precisar subir o servidor em uma porta.
+
+📌 Em conjunto, o **Jest** roda os testes e o **Supertest** envia as requisições para validar os endpoints da API.
+
+### Instalação das dependências de teste
+
+```bash
+npm install --save-dev jest supertest
+```
+📌 A flag “--save-dev” instala o pacote apenas para o ambiente de desenvolvimento. No ambiente de produção esse pacote não será necessário.
+
+### Executando os testes
+
+Antes de rodar os testes é importante configurar o package.json em sua seção scripts:
+
+```bash
+"scripts": {
+    "jtest": "jest --coverage --watch"  // linha adicionada
+ },
+```
+📌 Isso serve para executar o script de teste com a palavra chave “jtest”. Muito útil quando a linha de comando é extensa.
+📌 A flag “--coverage” do Jest mostra a cobertura dos testes sobre o módulo testado. Além disso, é gerado um “index.html” com o código testado, destacando as linhas não cobertas pelo teste. 
+📌 A flag “--wach” do Jest permite a execução dos testes sempre que salvar alterações no projeto. É necessário que o projeto esteja em um repositório git.
+
+
+Para rodar todos o script de test:
+
+```bash
+npm run jtest
+```
+Abrirá uma lista de opções de teste para serem escolhidas:
+
+f → run only failed tests
+Roda apenas os testes que falharam na última execução.
+👉 Útil quando você quer corrigir erros sem rodar tudo de novo.
+
+o → only run tests related to changed files
+Executa somente os testes relacionados aos arquivos que você acabou de modificar.
+👉 Economiza tempo em projetos grandes.
+
+p → filter by a filename regex pattern
+Permite digitar parte do nome do arquivo de teste (regex) para rodar só os testes que estão nele.
+👉 Exemplo: digitar cliente → roda só arquivos que tenham cliente.test.js.
+
+t → filter by a test name regex pattern
+Filtra por nome do teste definido no test() ou it().
+👉 Exemplo: se você digitar DELETE, roda só os testes que têm "DELETE" no título.
+
+q → quit watch mode
+Sai do modo --watch e volta para o terminal normal.
+
+Enter → trigger a test run
+Reexecuta todos os testes sem filtro, mesmo sem mudar nenhum arquivo.
+
+📌 A opção recomendada é a última, portanto pressione enter para selecionar a execução de todos os testes após salvar alguma alteração no projeto.
+
+### O que está sendo testado
+
+* **GET /clientes** → deve retornar a lista de clientes.
+* **GET /clientes/:id** → deve retornar o cliente quando existe, ou erro 404 quando não encontrado.
+* **POST /clientes** → deve criar um novo cliente e retornar status 201.
+* **PUT /clientes/:id** → deve atualizar os dados de um cliente existente.
+* **DELETE /clientes/:id** → deve remover um cliente e confirmar a exclusão.
+
+### Observação
+
+Certifique-se de que o servidor **não está rodando em outra instância** quando executar os testes, pois o Jest usa o `app` exportado sem precisar chamar `app.listen()`.
+### Conclusão
+
+Para garantir uma maior qualidade do produto de software é necessário que os testes iniciem em paralelo com o processo de desenvolvimento desse. Testar não é entregar um software livre de erros, mas é entregar um produto o mais fiel ao que foi solicitado.
+Destaca-se nesse trabalho a importância dos testes manuais e automatizados em seu respectivo estágio. O insomnia permite testar as rotas de forma manual sem a necessidade de um front-end. Isso facilita muito o processo de teste durante o desenvolvimento, pois não é necessário esperar pela construção de um front-end para iniciar os testes, assim como quebra um pouco da complexidade do teste aos olhos do executor que vai tratar apenas do back-end.
+O Jest junto com Supertest formam uma ferramenta valiosa para os testes automatizados. Com essas ferramentas podemos testar o código em vários cenários, comparando as saídas desejadas com as alcançadas. Também é importante destacar a funcionalidade de cobertura de teste que é mostrado graficamente para o executor do teste em instruções, ramos, funções e linhas. Uma página web com mais detalhes da cobertura dos testes também é disponibilizada, nela é possível ver os trechos do código que não foram cobertos pelos testes em destaque.
+A flag “--watch” é muito útil para o processo automatizado dos testes, com ela é possível executar os testes sempre que salvar alterações no projeto. Algumas opções de reexecução de testes são ofertadas, mas é interessante que se possível reexecute todos os testes sem filtros. 
+
+
 ## 📄 Licença
 
 Este projeto é licenciado sob a [Licença MIT](LICENSE).
